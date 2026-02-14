@@ -11,18 +11,15 @@ identified in previous work (H1.5).
 **Current Issue:** Basis grid regeneration required due to 
 mass-to-light ratio mismatch (see diagnostics/phase4_checkpoint.md)
 
-**Contact:** [your email]
+**Contact:** [vitor.figueiredo.research@protonmail.com]
 ```
 
 ---
 
-## 🎯 **GitHub Strategy:**
+H2-adaptive-kernels
 
-### **Repository Name:**
-`H2-adaptive-kernels` (descriptive, searchable, no Ananta reference)
-
-### **License:**
-MIT or GPL-3 (allows others to use/cite but requires attribution)
+**License:**
+MIT
 
 ### **Repository Structure:**
 ```
@@ -39,9 +36,4 @@ H2-adaptive-kernels/
 └── LICENSE
 ```
 
-### **First Commit Message:**
-```
-Initial commit: H2 framework with pre-registered diagnostics
 
-Phase-4 in progress. Current blocker: basis grid parameter mismatch
-identified in Test-2 correlation diagnostic. See docs/phase4_checkpoint.md
