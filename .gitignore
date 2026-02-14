@@ -1,6 +1,6 @@
 --- H2 FRAMEWORK EXCLUSIONS ---
 
-Byte-compiled / optimized / DLL files
+Byte-compiled / optimised / DLL files
 
 pycache/
 *.py[cod]
@@ -21,20 +21,11 @@ develop-eggs/
 dist/
 build/
 *.egg-info/
-
---- DATA PROTECTION (Ananta Firewall) ---
-
-We ignore large raw data and local outputs to keep the repo lean
-
-and protect against accidental upload of unprocessed files.
-
 data/sparc/
 data/derived/
 *.dat
 *.csv
 *.log
-
---- AI & IDE SPECIFIC (Cursor/VS Code) ---
 
 .vscode/
 .cursor/
@@ -42,12 +33,10 @@ data/derived/
 .cursorindexingignore
 .idea/
 
---- OS SPECIFIC ---
 
 .DS_Store
 Thumbs.db
 
---- PROJECT SPECIFIC ---
 
 .ipynb_checkpoints
 .pytest_cache/
