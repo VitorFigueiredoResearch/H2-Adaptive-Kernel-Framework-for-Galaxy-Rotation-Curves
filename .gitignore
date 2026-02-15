@@ -1,42 +1,30 @@
---- H2 FRAMEWORK EXCLUSIONS ---
-
-Byte-compiled / optimised / DLL files
-
-pycache/
-*.py[cod]
-*$py.class
+# Python
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
 *.so
 
-Environments & Dependencies
-
+# Environments
 .env
-.envrc
-.venv
-env/
+.venv/
 venv/
 ENV/
-bin/
-lib/
-develop-eggs/
-dist/
-build/
-*.egg-info/
-data/sparc/
-data/derived/
-*.dat
-*.csv
-*.log
 
+# Jupyter
+.ipynb_checkpoints/
+
+# IDE
 .vscode/
-.cursor/
-.cursorignore
-.cursorindexingignore
 .idea/
+.cursor/
 
-
+# OS
 .DS_Store
 Thumbs.db
 
-
-.ipynb_checkpoints
-.pytest_cache/
+# Large Data (DO NOT upload raw SPARC)
+data/sparc/
+data/derived/
+*.dat
+*.log
