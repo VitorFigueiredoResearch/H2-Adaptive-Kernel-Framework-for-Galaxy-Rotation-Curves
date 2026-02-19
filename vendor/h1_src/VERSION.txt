@@ -1,0 +1,4 @@
+Vendored from: Baryon-Convolved-Effective-Potential
+Commit: <paste hash here>
+Date: 2026-02-10
+Reason: Phase4 basis generation for adaptive convolution
