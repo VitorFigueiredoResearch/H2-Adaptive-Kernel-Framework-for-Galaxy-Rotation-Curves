@@ -1,0 +1,4 @@
+galaxy,status,test1_pass,test2_r,test2_N,test2_max_dV_kms,test3_sigma_h1_dex,test3_sigma_h2_dex,test3_delta_sigma_dex,mean_L_eff_kpc,min_L_eff_kpc,max_L_eff_kpc,L_eff_at_Rmax_kpc
+NGC3198,OK,1,0.2715,21,2.5874,0.5079,0.5079,0.0,123.7881,66.6667,200.0,200.0
+IC2574,OK,1,0.9451,21,0.1474,0.2217,0.2217,0.0,151.1534,66.6667,200.0,200.0
+NGC0891,OK,1,-0.044,21,0.2183,0.1152,0.1152,0.0,124.0558,66.6667,200.0,200.0
