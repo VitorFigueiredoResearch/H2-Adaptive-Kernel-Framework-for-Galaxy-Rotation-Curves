@@ -1,0 +1,7 @@
+(H1-env) C:\Users\Vitor\Documents\GitHub\Baryon-Convolved-Effective-Potential\results>python plot_mafe_histogram.py
+[OK] MAFE histogram generated: fig_mafe_histogram.pdf
+  Galaxies: 175
+  Median MAFE: 0.2148
+  16–84 percentile: [0.1149, 0.6745]
+  Fraction MAFE < 0.10: 12.00%
+  Fraction MAFE < 0.15: 29.14%
