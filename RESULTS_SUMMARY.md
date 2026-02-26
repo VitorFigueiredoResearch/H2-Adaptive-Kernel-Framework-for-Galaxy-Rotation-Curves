@@ -124,11 +124,17 @@ Complete workflow documented in `USER_GUIDE.md`. All results reproducible from S
 
 ---
 
+
 ## Citation
 
 If you use this framework, please cite:
 
-**H2 Framework:** [Paper citation to be added after publication]
+**H2 Framework:**  
+Figueiredo, V. M. F. (2026). H2 Adaptive Kernel Framework for Galaxy Rotation Curves (v1.0). 
+Zenodo. https://doi.org/10.5281/zenodo.18793233
+
+**SPARC Database (required):**  
+Lelli, F., McGaugh, S. S., & Schombert, J. M. (2016)...
 
 **SPARC Database (required):**  
 Lelli, F., McGaugh, S. S., & Schombert, J. M. (2016). SPARC: Mass Models for 175 Disk Galaxies with Spitzer Photometry and Accurate Rotation Curves. *The Astronomical Journal*, 152, 157. DOI: [10.3847/0004-6256/152/6/157](https://doi.org/10.3847/0004-6256/152/6/157)
@@ -136,3 +142,4 @@ Lelli, F., McGaugh, S. S., & Schombert, J. M. (2016). SPARC: Mass Models for 175
 ---
 
 *For questions or collaboration inquiries, see contact information in README.md.*
+
