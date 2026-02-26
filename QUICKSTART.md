@@ -8,7 +8,7 @@
 
 **1. Open a terminal in the H2 root directory:**
 ```batch
-cd C:\Users\Vitor\Documents\GitHub\H2
+cd C:\Users\username\Documents\GitHub\H2
 ```
 
 **2. Verify both input files exist for your galaxy (replace `X`):**
@@ -109,3 +109,4 @@ Compare against the validated 3-galaxy reference:
 - **All troubleshooting:** [USER_GUIDE.md §10](USER_GUIDE.md#10-troubleshooting)
 - **Advanced: generating basis files for new galaxies:** [USER_GUIDE.md §6](USER_GUIDE.md#6-advanced-generating-new-basis-files)
 - **Validated results and findings:** [RESULTS_SUMMARY.md](RESULTS_SUMMARY.md)
+
