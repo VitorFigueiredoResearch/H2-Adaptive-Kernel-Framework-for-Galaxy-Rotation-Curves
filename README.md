@@ -1,5 +1,7 @@
 # H2 Adaptive Kernel Framework for Galaxy Rotation Curves
 
+[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18793233.svg)](https://doi.org/10.5281/zenodo.18793233)
+
 State-driven adaptive nonlocal gravity framework with regime-dependent kernel deformation.
 
 **Status:** Companion code for paper submission · 9-galaxy validation complete
@@ -180,7 +182,8 @@ MIT License. See `LICENSE.md` for details.
 
 If you use this framework in published work, please cite:
 
-> [H2 paper citation — to be added after publication]
+> Figueiredo, V. M. F. (2026). H2 Adaptive Kernel Framework for Galaxy Rotation Curves (v1.0). 
+> Zenodo. https://doi.org/10.5281/zenodo.18793233
 
 And the SPARC database (mandatory — see above).
 
@@ -190,4 +193,5 @@ And the SPARC database (mandatory — see above).
 
 Questions or issues? Open a GitHub issue or contact:
 [vitor.figueiredo.research@protonmail.com]
+
 
