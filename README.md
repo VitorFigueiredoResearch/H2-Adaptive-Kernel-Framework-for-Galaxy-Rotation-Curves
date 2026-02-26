@@ -49,7 +49,7 @@ See `data/derived/fleet/REGIME_ANALYSIS.md` and `RESULTS_SUMMARY.md` for full an
 ### Setup
 
 ```bash
-git clone https://github.com/<your-username>/H2-Adaptive-Framework
+git clone https://github.com/VitorFigueiredoResearch/H2-Adaptive-Kernel-Framework-for-Galaxy-Rotation-Curves
 cd H2-Adaptive-Framework
 pip install -r requirements.txt
 ```
@@ -190,3 +190,4 @@ And the SPARC database (mandatory — see above).
 
 Questions or issues? Open a GitHub issue or contact:
 [vitor.figueiredo.research@protonmail.com]
+
