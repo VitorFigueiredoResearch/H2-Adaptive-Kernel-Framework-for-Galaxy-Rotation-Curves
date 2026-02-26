@@ -1,1 +1,0 @@
-# Forward prediction of stacked lensing from (L, μ) (placeholder)
