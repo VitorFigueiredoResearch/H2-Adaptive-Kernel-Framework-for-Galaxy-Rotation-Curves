@@ -1,4 +1,4 @@
-# H2 Adaptive Kernel Framework — 80-Galaxy Validation Summary
+# H2 A Null-Response Diagnostic of Adaptive Nonlocal Kernel Modulation in 80 SPARC Galaxies  Summary
 
 > **Status:** 80-galaxy validation complete · Manuscript Submitted to The Astrophysical Journal 
 > **Date:** 2026-03-09  
@@ -189,4 +189,5 @@ ORCID: [0009-0004-7358-4622](https://orcid.org/0009-0004-7358-4622)
 ---
 
 *Last updated: 2026-03-09*
+
 
