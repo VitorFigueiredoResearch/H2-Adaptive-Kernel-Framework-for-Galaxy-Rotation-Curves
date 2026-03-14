@@ -1,7 +1,8 @@
 # H2 Adaptive Kernel Framework for Galaxy Rotation Curves
 
 [![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18911959.svg)](https://doi.org/10.5281/zenodo.18911959)
-
+![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18793233.svg)
+![License](https://img.shields.io/github/license/VitorFigueiredoResearch/H2-Adaptive-Kernel-Framework-for-Galaxy-Rotation-Curves)
 Adaptive nonlocal kernel framework for galaxy rotation curves, with bounded local scale modulation and an 80-galaxy SPARC validation sample.
 
 **Status:** Final paper-support repository · 80-galaxy validation complete
