@@ -4,9 +4,9 @@ title: "H2 Adaptive Kernel Framework for Galaxy Rotation Curves"
 type: software
 authors:
   - family-names: "Figueiredo"
-    given-names: "Vítor M. F. F."
+    given-names: "Vitor M. F. F."
     orcid: "https://orcid.org/0009-0004-7358-4622"
-doi: 10.5281/zenodo.18793233
+doi: 10.5281/zenodo.18911959
 version: "v1.0.1-publication"
 date-released: 2026-03-06
 repository-code: "https://github.com/VitorFigueiredoResearch/H2-Adaptive-Kernel-Framework-for-Galaxy-Rotation-Curves"
