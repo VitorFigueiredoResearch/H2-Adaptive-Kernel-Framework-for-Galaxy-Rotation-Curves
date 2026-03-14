@@ -31,7 +31,10 @@ This repository contains:
 ---
 
 ## Main Result
+The final validation sample contains 80 SPARC galaxies...
 
+![H2 Acceleration Space Results](scripts/Figures/acceleration_space_80galaxy.png)
+*Figure 1: Acceleration space distribution for the 80-galaxy validation fleet, showing the transition from baryon-dominated to dark-matter-dominated regimes.*
 The final validation sample contains **80 SPARC galaxies** from a **canonical-baseline-compatible subset** of the SPARC database:
 
 - **39 baryon-dominated** systems
