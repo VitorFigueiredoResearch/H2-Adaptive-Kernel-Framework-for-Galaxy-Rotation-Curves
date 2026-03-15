@@ -1,6 +1,6 @@
 # H2 Adaptive Kernel Framework for Galaxy Rotation Curves
 
-![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18911959.svg)]
+![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18911959.svg)
 ![License](https://img.shields.io/github/license/VitorFigueiredoResearch/H2-Adaptive-Kernel-Framework-for-Galaxy-Rotation-Curves)
 
 
