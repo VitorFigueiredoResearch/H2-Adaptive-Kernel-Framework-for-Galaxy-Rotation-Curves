@@ -1,6 +1,6 @@
 # H2 Adaptive Kernel Framework for Galaxy Rotation Curves
 
-[![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18911959.svg)](https://doi.org/10.5281/zenodo.18911959)
+![DOI](https://zenodo.org/badge/DOI/10.5281/zenodo.18911959.svg)](https://doi.org/10.5281/zenodo.18911959)
 ![License](https://img.shields.io/github/license/VitorFigueiredoResearch/H2-Adaptive-Kernel-Framework-for-Galaxy-Rotation-Curves)
 
 
@@ -9,7 +9,12 @@ Adaptive nonlocal kernel framework for galaxy rotation curves, with bounded loca
 **Status:** Final paper-support repository · 80-galaxy validation complete
 
 ---
-
+## Paper Status
+**Currently in peer review** at *The Astrophysical Journal*  
+- **Manuscript ID:** AAS74932  
+- **Submitted:** March 11, 2026  
+- **Status:** Peer review (as of March 13, 2026)
+  
 ## Overview
 
 H2 is a controlled extension of the frozen H1 nonlocal kernel framework. It introduces a locally adaptive effective kernel scale, $L_{\mathrm{eff}}(r)$, modulated by the baryonic gradient field $\chi(r)$, while preserving the canonical H1 baseline parameters:
