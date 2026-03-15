@@ -146,6 +146,17 @@ H2/
 │   ├── test2_chi_correlation.py
 │   ├── test3_inner_scatter.py
 │   └── run_fleet.py
+├── paper/ 
+│   ├── H2_ApJ_FINAL_READY.tex  (NEW - ApJ version)
+│   ├── references.bib
+│   ├── acceleration_space_80galaxy.pdf
+│   ├── regime_trends_80galaxy.png
+│   ├── leff_overlay_80galaxy.png
+│   └── rc_comparison_NGC3198.pdf
+├── scripts/  
+│   └── figures/
+│       ├── generate_acceleration_space_plot.py
+│       └── acceleration_space_80galaxy.pdf 
 ├── tests/                        # Unit tests
 ├── data/
 │   ├── sparc/                    # SPARC input rotation curves
