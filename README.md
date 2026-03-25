@@ -1,10 +1,3 @@
-Yes — the current README is now too H2-centered for what the repo has become. The file still presents the project mainly as an H2 adaptive-kernel repository, while your current outputs now support a broader **comparative SPARC galaxy-dynamics** program with H2, NFW, and MOND/RAR side-by-side. 
-
-Below is a full replacement README you can paste into the repo root.
-
----
-
-````markdown
 # SPARC-Comparative-Galaxy-Dynamics
 
 ![License](https://img.shields.io/github/license/VitorFigueiredoResearch/SPARC-Comparative-Galaxy-Dynamics)
