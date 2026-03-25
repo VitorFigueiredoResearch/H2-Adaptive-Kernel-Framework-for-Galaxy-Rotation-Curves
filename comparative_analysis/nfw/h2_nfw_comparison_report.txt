@@ -1,0 +1,69 @@
+H2 vs NFW Comparison Report
+============================================================
+
+OVERVIEW
+----------------------------------------
+H2 fleet galaxies analyzed:           80
+NFW perturbation results available:   80
+Matched and valid (n_inner >= 3):     74
+
+H2 NULL RESULT CONTEXT
+----------------------------------------
+H2 (Adaptive Kernel Framework) finds inner-region delta_sigma ~ 0
+in the operational log-residual RMS metric used by its diagnostic
+implementation, indicating scatter-neutral behavior under bounded
+kernel adaptation. This is the reference pattern for comparison.
+
+NFW PERTURBATION SENSITIVITY RESULTS
+----------------------------------------
+Perturbations applied: V200 +-10%/+-20%, C200 +-10%/+-20%, both jointly
+Scatter metric: RMS of log10(V_tot) - log10(V_obs) in inner region
+Inner region: R < 0.5 * R_max
+
+Overall max|Delta_sigma_NFW| [dex]:
+  Mean:   0.0555 dex
+  Median: 0.0548 dex
+  (N = 74)
+
+Suppression classification (max|Delta_sigma|):
+  < 0.01 dex (strong suppression):      1 / 74 (1.4%)
+  0.01-0.05 dex (moderate):            32 / 74 (43.2%)
+  > 0.05 dex (weak suppression):       41 / 74 (55.4%)
+
+BY REGIME
+----------------------------------------
+  baryon-dom (N=35):
+    mean=0.0463, median=0.0430, std=0.0229
+    range=[0.0067, 0.0917]
+  balanced (N=29):
+    mean=0.0628, median=0.0633, std=0.0249
+    range=[0.0174, 0.1105]
+  DM-dom (N=10):
+    mean=0.0668, median=0.0711, std=0.0177
+    range=[0.0253, 0.0908]
+
+SPEARMAN CORRELATION
+----------------------------------------
+max|Delta_sigma_NFW| vs V_bar/V_NFW_inner (N=74):
+  Spearman rho = -0.899, p-value = 1.8192e-27
+  -> Statistically significant correlation (p < 0.05)
+  -> DM-dominated galaxies show larger NFW parameter sensitivity
+
+CONSISTENCY WITH H2 NULL RESULT
+----------------------------------------
+H2 reports delta_sigma ~ 0 in the same log-residual scatter metric
+for all regime types (scatter-neutral behavior under bounded perturbation).
+NFW analysis: 44.6% of galaxies show
+  max|Delta_sigma_NFW| < 0.05 dex (strong or moderate suppression).
+
+Overall assessment:
+  INCONSISTENT: NFW fits show substantial scatter sensitivity (>0.05 dex median). Within the tested perturbation ranges, NFW parameter variations produce larger inner-region scatter changes than the H2 null-response pattern.
+
+METRIC COMPARABILITY NOTE
+----------------------------------------
+This comparison assumes that the H2 operational inner-region scatter
+diagnostic is the same log10-based RMS metric used internally in the
+H2 diagnostic implementation. Under that assumption, both H2 and NFW
+results are being interpreted in the same dex/log-residual metric.
+The legacy fleet-summary column name 'delta_sigma_kms' is therefore
+treated here as a mislabeled field rather than a distinct physical unit.
