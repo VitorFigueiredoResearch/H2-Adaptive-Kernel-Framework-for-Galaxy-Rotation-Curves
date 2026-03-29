@@ -1,0 +1,81 @@
+Galaxy,Regime,inner_region_definition,n_inner_points,h2_sigma_baseline,h1_sigma_baseline,h2_delta_sigma_harmonized,reconstruction_status,notes
+NGC6946,baryon-dom,R < 0.5 * R_max,29,0.148361,0.147871,0.000490,exact,H2_col=V_total_H2 H1_col=V_total
+NGC2903,baryon-dom,R < 0.5 * R_max,20,0.298877,0.298643,0.000234,exact,H2_col=V_total_H2 H1_col=V_total
+NGC5585,baryon-dom,R < 0.5 * R_max,15,0.288121,0.287797,0.000324,exact,H2_col=V_total_H2 H1_col=V_total
+NGC0891,baryon-dom,R < 0.5 * R_max,8,0.115359,0.115206,0.000153,exact,H2_col=V_total_H2 H1_col=V_total
+NGC7793,baryon-dom,R < 0.5 * R_max,36,,0.207729,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC2998,baryon-dom,R < 0.5 * R_max,8,,0.082588,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC0024,baryon-dom,R < 0.5 * R_max,25,,0.438539,,H2_file_missing,H2 file not found; H1 sigma computed only.
+IC2574,baryon-dom,R < 0.5 * R_max,15,0.222809,0.221724,0.001085,exact,H2_col=V_total_H2 H1_col=V_total
+NGC3893,baryon-dom,R < 0.5 * R_max,5,0.181185,0.180828,0.000357,exact,H2_col=V_total_H2 H1_col=V_total
+DDO161,baryon-dom,R < 0.5 * R_max,16,,0.437158,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC3769,baryon-dom,R < 0.5 * R_max,9,,0.288724,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC3726,baryon-dom,R < 0.5 * R_max,8,,0.309695,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC1003,baryon-dom,R < 0.5 * R_max,17,,0.312712,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC3198,baryon-dom,R < 0.5 * R_max,31,0.510502,0.507872,0.002631,exact,H2_col=V_total_H2 H1_col=V_total
+NGC5033,baryon-dom,R < 0.5 * R_max,12,,0.187197,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC3953,baryon-dom,R < 0.5 * R_max,3,,0.054302,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC3521,baryon-dom,R < 0.5 * R_max,37,,0.161721,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC3992,baryon-dom,R < 0.5 * R_max,4,,0.245051,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC03580,balanced,R < 0.5 * R_max,39,,0.379074,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC06983,balanced,R < 0.5 * R_max,7,,0.096088,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC5055,balanced,R < 0.5 * R_max,18,0.359313,0.357657,0.001655,exact,H2_col=V_total_H2 H1_col=V_total
+UGC07608,balanced,R < 0.5 * R_max,4,,0.210951,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC02259,balanced,R < 0.5 * R_max,3,,0.176959,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC4100,balanced,R < 0.5 * R_max,11,,0.243996,,H2_file_missing,H2 file not found; H1 sigma computed only.
+KK98-251,balanced,R < 0.5 * R_max,8,,0.254064,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC05716,balanced,R < 0.5 * R_max,5,,0.339734,,H2_file_missing,H2 file not found; H1 sigma computed only.
+F571-8,balanced,R < 0.5 * R_max,10,,0.293244,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC6503,balanced,R < 0.5 * R_max,15,0.280942,0.277704,0.003237,exact,H2_col=V_total_H2 H1_col=V_total
+NGC2403,DM-dom,R < 0.5 * R_max,52,,0.554066,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC2955,DM-dom,R < 0.5 * R_max,18,,0.140509,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC07261,baryon-dom,R < 0.5 * R_max,3,,0.043020,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC11557,baryon-dom,R < 0.5 * R_max,7,,0.284943,,H2_file_missing,H2 file not found; H1 sigma computed only.
+F567-2,baryon-dom,R < 0.5 * R_max,2,,0.030991,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC09037,baryon-dom,R < 0.5 * R_max,10,,0.096983,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC09992,baryon-dom,R < 0.5 * R_max,2,,0.051473,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC4085,baryon-dom,R < 0.5 * R_max,3,,0.175374,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC06628,baryon-dom,R < 0.5 * R_max,3,,0.050101,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC2976,baryon-dom,R < 0.5 * R_max,15,,0.258182,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC00731,balanced,R < 0.5 * R_max,6,,0.066557,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC4559,balanced,R < 0.5 * R_max,16,,0.220304,,H2_file_missing,H2 file not found; H1 sigma computed only.
+D564-8,balanced,R < 0.5 * R_max,3,,0.212771,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC07323,balanced,R < 0.5 * R_max,4,,0.166834,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC00191,balanced,R < 0.5 * R_max,7,,0.198420,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC04278,balanced,R < 0.5 * R_max,12,,0.221197,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC05918,balanced,R < 0.5 * R_max,3,,0.085462,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC11820,balanced,R < 0.5 * R_max,6,,0.246729,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC0247,DM-dom,R < 0.5 * R_max,12,,0.141527,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC06399,DM-dom,R < 0.5 * R_max,4,,0.243894,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC05999,DM-dom,R < 0.5 * R_max,2,,0.225042,,H2_file_missing,H2 file not found; H1 sigma computed only.
+F563-1,DM-dom,R < 0.5 * R_max,10,,0.206202,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC07577,baryon-dom,R < 0.5 * R_max,4,,0.131910,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC6789,baryon-dom,R < 0.5 * R_max,2,,0.129859,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC06818,baryon-dom,R < 0.5 * R_max,3,,0.268031,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC0100,baryon-dom,R < 0.5 * R_max,11,,0.235609,,H2_file_missing,H2 file not found; H1 sigma computed only.
+DDO064,baryon-dom,R < 0.5 * R_max,8,,0.196859,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC4389,baryon-dom,R < 0.5 * R_max,2,,0.169224,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC07603,baryon-dom,R < 0.5 * R_max,6,,0.222947,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC07151,baryon-dom,R < 0.5 * R_max,5,,0.106521,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC4088,baryon-dom,R < 0.5 * R_max,6,,0.185870,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC12732,baryon-dom,R < 0.5 * R_max,8,,0.152452,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC07089,baryon-dom,R < 0.5 * R_max,5,,0.172430,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC12632,baryon-dom,R < 0.5 * R_max,7,,0.086316,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC4214,baryon-dom,R < 0.5 * R_max,7,,0.258992,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC02916,balanced,R < 0.5 * R_max,36,,0.100684,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC11914,balanced,R < 0.5 * R_max,42,,0.045843,,H2_file_missing,H2 file not found; H1 sigma computed only.
+F583-1,balanced,R < 0.5 * R_max,22,,0.316808,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC06917,balanced,R < 0.5 * R_max,4,,0.124042,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC08550,balanced,R < 0.5 * R_max,5,,0.425734,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC06930,balanced,R < 0.5 * R_max,4,,0.093174,,H2_file_missing,H2 file not found; H1 sigma computed only.
+DDO170,balanced,R < 0.5 * R_max,3,,0.224184,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC00634,balanced,R < 0.5 * R_max,1,,0.265649,,H2_file_missing,H2 file not found; H1 sigma computed only.
+F568-3,balanced,R < 0.5 * R_max,12,,0.241407,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC4183,balanced,R < 0.5 * R_max,12,,0.187191,,H2_file_missing,H2 file not found; H1 sigma computed only.
+NGC1090,balanced,R < 0.5 * R_max,12,,0.331466,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGCA444,balanced,R < 0.5 * R_max,17,,0.100536,,H2_file_missing,H2 file not found; H1 sigma computed only.
+F565-V2,DM-dom,R < 0.5 * R_max,3,,0.276279,,H2_file_missing,H2 file not found; H1 sigma computed only.
+DDO154,DM-dom,R < 0.5 * R_max,5,,0.634477,,H2_file_missing,H2 file not found; H1 sigma computed only.
+F568-V1,DM-dom,R < 0.5 * R_max,11,,0.226005,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC08286,DM-dom,R < 0.5 * R_max,8,,0.315361,,H2_file_missing,H2 file not found; H1 sigma computed only.
+UGC05005,DM-dom,R < 0.5 * R_max,7,,0.477270,,H2_file_missing,H2 file not found; H1 sigma computed only.

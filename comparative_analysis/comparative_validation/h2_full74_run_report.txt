@@ -1,0 +1,179 @@
+H2 Full 74-Galaxy Run Report
+=======================================================
+Generated: 2026-03-27
+
+Policy: NO H1 proxy. All H2 values are from genuine phase4
+  pipeline outputs. Galaxies without output → cannot_compute.
+
+Source directories:
+  Tier A: C:\Users\Vitor\Documents\H1_H2_Documentation and repos\repos\H2-Adaptive-Kernel-Framework-for-Galaxy-Rotation-Curves\data\derived\phase4\h2_outputs
+  Tier B: C:\Users\Vitor\Documents\H1_H2_Documentation and repos\repos\H2-Adaptive-Kernel-Framework-for-Galaxy-Rotation-Curves\H2_PUBLICATION_RELEASE\fleet_expansion_30galaxy\phase4_outputs
+
+Total processed        : 74
+Explicit H2 computed   : 30
+  Tier A (pilot 9)     : 9
+  Tier B (expansion 21): 21
+Cannot compute         : 44
+
+Comparison metric: abs_delta_sigma_dex = |sigma_H2 - sigma_H1|
+
+Median |Δσ_H2| (30 valid): 0.000860 dex
+Max    |Δσ_H2| (30 valid): 0.005323 dex
+
+Reference only (not comparison metric):
+  Median sigma_H2 : 0.245421 dex
+  Median sigma_H1 : 0.244524 dex
+
+Explicit values (sorted by |Δσ_H2|):
+  TierB NGC7793          |Δσ|=0.000031  H2=0.172007  H1=0.171976  n=36
+  TierB NGC3953          |Δσ|=0.000108  H2=0.054409  H1=0.054302  n=3
+  TierA NGC0891          |Δσ|=0.000153  H2=0.115359  H1=0.115206  n=8
+  TierA NGC2903          |Δσ|=0.000221  H2=0.261375  H1=0.261155  n=20
+  TierB UGC07608         |Δσ|=0.000224  H2=0.211174  H1=0.210951  n=4
+  TierB NGC3521          |Δσ|=0.000276  H2=0.161996  H1=0.161721  n=37
+  TierA NGC3893          |Δσ|=0.000357  H2=0.181185  H1=0.180828  n=5
+  TierA NGC5585          |Δσ|=0.000378  H2=0.263592  H1=0.263214  n=15
+  TierB NGC1003          |Δσ|=0.000395  H2=0.313107  H1=0.312712  n=17
+  TierB NGC4100          |Δσ|=0.000472  H2=0.244467  H1=0.243996  n=11
+  TierB UGC06983         |Δσ|=0.000485  H2=0.096573  H1=0.096088  n=7
+  TierA NGC6946          |Δσ|=0.000537  H2=0.149111  H1=0.148573  n=29
+  TierB NGC2998          |Δσ|=0.000577  H2=0.075493  H1=0.074916  n=8
+  TierB UGC02259         |Δσ|=0.000718  H2=0.177677  H1=0.176959  n=3
+  TierB F571-8           |Δσ|=0.000842  H2=0.221547  H1=0.220706  n=10
+  TierB KK98-251         |Δσ|=0.000878  H2=0.254942  H1=0.254064  n=8
+  TierB NGC0024          |Δσ|=0.000902  H2=0.439441  H1=0.438539  n=25
+  TierB UGC03580         |Δσ|=0.001040  H2=0.385717  H1=0.384677  n=39
+  TierA IC2574           |Δσ|=0.001085  H2=0.222809  H1=0.221724  n=15
+  TierB NGC3726          |Δσ|=0.001093  H2=0.310788  H1=0.309695  n=8
+  TierB NGC3992          |Δσ|=0.001324  H2=0.246375  H1=0.245051  n=4
+  TierB DDO161           |Δσ|=0.001596  H2=0.438754  H1=0.437158  n=16
+  TierA NGC5055          |Δσ|=0.001598  H2=0.347893  H1=0.346294  n=18
+  TierB UGC05716         |Δσ|=0.002351  H2=0.342086  H1=0.339734  n=5
+  TierA NGC3198          |Δσ|=0.002526  H2=0.472912  H1=0.470386  n=31
+  TierB NGC2955          |Δσ|=0.002615  H2=0.137894  H1=0.140509  n=18
+  TierB NGC3769          |Δσ|=0.003203  H2=0.291927  H1=0.288724  n=9
+  TierA NGC6503          |Δσ|=0.003237  H2=0.280942  H1=0.277704  n=15
+  TierB NGC5033          |Δσ|=0.003403  H2=0.198830  H1=0.195427  n=12
+  TierB NGC2403          |Δσ|=0.005323  H2=0.535192  H1=0.529868  n=52
+
+Cannot-compute galaxies:
+  D564-8           TierC  note=no_phase4_file
+  DDO064           TierC  note=no_phase4_file
+  DDO154           TierC  note=no_phase4_file
+  DDO170           TierC  note=no_phase4_file
+  F563-1           TierC  note=no_phase4_file
+  F565-V2          TierC  note=no_phase4_file
+  F568-3           TierC  note=no_phase4_file
+  F568-V1          TierC  note=no_phase4_file
+  F583-1           TierC  note=no_phase4_file
+  NGC0100          TierC  note=no_phase4_file
+  NGC0247          TierC  note=no_phase4_file
+  NGC1090          TierC  note=no_phase4_file
+  NGC2976          TierC  note=no_phase4_file
+  NGC4085          TierC  note=no_phase4_file
+  NGC4088          TierC  note=no_phase4_file
+  NGC4183          TierC  note=no_phase4_file
+  NGC4214          TierC  note=no_phase4_file
+  NGC4559          TierC  note=no_phase4_file
+  UGC00191         TierC  note=no_phase4_file
+  UGC00731         TierC  note=no_phase4_file
+  UGC02916         TierC  note=no_phase4_file
+  UGC04278         TierC  note=no_phase4_file
+  UGC05005         TierC  note=no_phase4_file
+  UGC05918         TierC  note=no_phase4_file
+  UGC06399         TierC  note=no_phase4_file
+  UGC06628         TierC  note=no_phase4_file
+  UGC06818         TierC  note=no_phase4_file
+  UGC06917         TierC  note=no_phase4_file
+  UGC06930         TierC  note=no_phase4_file
+  UGC07089         TierC  note=no_phase4_file
+  UGC07151         TierC  note=no_phase4_file
+  UGC07261         TierC  note=no_phase4_file
+  UGC07323         TierC  note=no_phase4_file
+  UGC07577         TierC  note=no_phase4_file
+  UGC07603         TierC  note=no_phase4_file
+  UGC08286         TierC  note=no_phase4_file
+  UGC08550         TierC  note=no_phase4_file
+  UGC09037         TierC  note=no_phase4_file
+  UGC11557         TierC  note=no_phase4_file
+  UGC11820         TierC  note=no_phase4_file
+  UGC11914         TierC  note=no_phase4_file
+  UGC12632         TierC  note=no_phase4_file
+  UGC12732         TierC  note=no_phase4_file
+  UGCA444          TierC  note=no_phase4_file
+
+Per-galaxy log:
+  OK  TierA NGC6946: sigma_H2=0.149111  sigma_H1=0.148573  |Δσ|=0.000537 dex  n_inner=29
+  OK  TierA NGC2903: sigma_H2=0.261375  sigma_H1=0.261155  |Δσ|=0.000221 dex  n_inner=20
+  OK  TierA NGC5585: sigma_H2=0.263592  sigma_H1=0.263214  |Δσ|=0.000378 dex  n_inner=15
+  OK  TierA NGC0891: sigma_H2=0.115359  sigma_H1=0.115206  |Δσ|=0.000153 dex  n_inner=8
+  OK  TierB NGC7793: sigma_H2=0.172007  sigma_H1=0.171976  |Δσ|=0.000031 dex  n_inner=36
+  OK  TierB NGC2998: sigma_H2=0.075493  sigma_H1=0.074916  |Δσ|=0.000577 dex  n_inner=8
+  OK  TierB NGC0024: sigma_H2=0.439441  sigma_H1=0.438539  |Δσ|=0.000902 dex  n_inner=25
+  OK  TierA IC2574: sigma_H2=0.222809  sigma_H1=0.221724  |Δσ|=0.001085 dex  n_inner=15
+  OK  TierA NGC3893: sigma_H2=0.181185  sigma_H1=0.180828  |Δσ|=0.000357 dex  n_inner=5
+  OK  TierB DDO161: sigma_H2=0.438754  sigma_H1=0.437158  |Δσ|=0.001596 dex  n_inner=16
+  OK  TierB NGC3769: sigma_H2=0.291927  sigma_H1=0.288724  |Δσ|=0.003203 dex  n_inner=9
+  OK  TierB NGC3726: sigma_H2=0.310788  sigma_H1=0.309695  |Δσ|=0.001093 dex  n_inner=8
+  OK  TierB NGC1003: sigma_H2=0.313107  sigma_H1=0.312712  |Δσ|=0.000395 dex  n_inner=17
+  OK  TierA NGC3198: sigma_H2=0.472912  sigma_H1=0.470386  |Δσ|=0.002526 dex  n_inner=31
+  OK  TierB NGC5033: sigma_H2=0.198830  sigma_H1=0.195427  |Δσ|=0.003403 dex  n_inner=12
+  OK  TierB NGC3953: sigma_H2=0.054409  sigma_H1=0.054302  |Δσ|=0.000108 dex  n_inner=3
+  OK  TierB NGC3521: sigma_H2=0.161996  sigma_H1=0.161721  |Δσ|=0.000276 dex  n_inner=37
+  OK  TierB NGC3992: sigma_H2=0.246375  sigma_H1=0.245051  |Δσ|=0.001324 dex  n_inner=4
+  OK  TierB UGC03580: sigma_H2=0.385717  sigma_H1=0.384677  |Δσ|=0.001040 dex  n_inner=39
+  OK  TierB UGC06983: sigma_H2=0.096573  sigma_H1=0.096088  |Δσ|=0.000485 dex  n_inner=7
+  OK  TierA NGC5055: sigma_H2=0.347893  sigma_H1=0.346294  |Δσ|=0.001598 dex  n_inner=18
+  OK  TierB UGC07608: sigma_H2=0.211174  sigma_H1=0.210951  |Δσ|=0.000224 dex  n_inner=4
+  OK  TierB UGC02259: sigma_H2=0.177677  sigma_H1=0.176959  |Δσ|=0.000718 dex  n_inner=3
+  OK  TierB NGC4100: sigma_H2=0.244467  sigma_H1=0.243996  |Δσ|=0.000472 dex  n_inner=11
+  OK  TierB KK98-251: sigma_H2=0.254942  sigma_H1=0.254064  |Δσ|=0.000878 dex  n_inner=8
+  OK  TierB UGC05716: sigma_H2=0.342086  sigma_H1=0.339734  |Δσ|=0.002351 dex  n_inner=5
+  OK  TierB F571-8: sigma_H2=0.221547  sigma_H1=0.220706  |Δσ|=0.000842 dex  n_inner=10
+  OK  TierA NGC6503: sigma_H2=0.280942  sigma_H1=0.277704  |Δσ|=0.003237 dex  n_inner=15
+  OK  TierB NGC2403: sigma_H2=0.535192  sigma_H1=0.529868  |Δσ|=0.005323 dex  n_inner=52
+  OK  TierB NGC2955: sigma_H2=0.137894  sigma_H1=0.140509  |Δσ|=0.002615 dex  n_inner=18
+  FAIL TierC UGC07261: no_phase4_file
+  FAIL TierC UGC11557: no_phase4_file
+  FAIL TierC UGC09037: no_phase4_file
+  FAIL TierC NGC4085: no_phase4_file
+  FAIL TierC UGC06628: no_phase4_file
+  FAIL TierC NGC2976: no_phase4_file
+  FAIL TierC UGC00731: no_phase4_file
+  FAIL TierC NGC4559: no_phase4_file
+  FAIL TierC D564-8: no_phase4_file
+  FAIL TierC UGC07323: no_phase4_file
+  FAIL TierC UGC00191: no_phase4_file
+  FAIL TierC UGC04278: no_phase4_file
+  FAIL TierC UGC05918: no_phase4_file
+  FAIL TierC UGC11820: no_phase4_file
+  FAIL TierC NGC0247: no_phase4_file
+  FAIL TierC UGC06399: no_phase4_file
+  FAIL TierC F563-1: no_phase4_file
+  FAIL TierC UGC07577: no_phase4_file
+  FAIL TierC UGC06818: no_phase4_file
+  FAIL TierC NGC0100: no_phase4_file
+  FAIL TierC DDO064: no_phase4_file
+  FAIL TierC UGC07603: no_phase4_file
+  FAIL TierC UGC07151: no_phase4_file
+  FAIL TierC NGC4088: no_phase4_file
+  FAIL TierC UGC12732: no_phase4_file
+  FAIL TierC UGC07089: no_phase4_file
+  FAIL TierC UGC12632: no_phase4_file
+  FAIL TierC NGC4214: no_phase4_file
+  FAIL TierC UGC02916: no_phase4_file
+  FAIL TierC UGC11914: no_phase4_file
+  FAIL TierC F583-1: no_phase4_file
+  FAIL TierC UGC06917: no_phase4_file
+  FAIL TierC UGC08550: no_phase4_file
+  FAIL TierC UGC06930: no_phase4_file
+  FAIL TierC DDO170: no_phase4_file
+  FAIL TierC F568-3: no_phase4_file
+  FAIL TierC NGC4183: no_phase4_file
+  FAIL TierC NGC1090: no_phase4_file
+  FAIL TierC UGCA444: no_phase4_file
+  FAIL TierC F565-V2: no_phase4_file
+  FAIL TierC DDO154: no_phase4_file
+  FAIL TierC F568-V1: no_phase4_file
+  FAIL TierC UGC08286: no_phase4_file
+  FAIL TierC UGC05005: no_phase4_file

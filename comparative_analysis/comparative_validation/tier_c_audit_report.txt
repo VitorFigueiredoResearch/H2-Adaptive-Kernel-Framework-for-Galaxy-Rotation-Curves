@@ -1,0 +1,215 @@
+TIER C GALAXY AUDIT — Phase4 / Phase3 Archive Inventory
+=======================================================
+Generated: 2026-03-27
+Auditor: systematic repo-wide file search (find + fleet summary inspection)
+
+Purpose: Determine whether any of the 44 "cannot_compute" Tier C galaxies
+have archived phase4 outputs or phase3 leff files that could enable
+explicit H2 sigma_H2 computation, and separate any inner-coverage N/A
+cases from genuinely unarchived galaxies.
+
+
+═══════════════════════════════════════════════════════
+1. SEARCH SCOPE
+═══════════════════════════════════════════════════════
+
+Directories searched for leff_*.csv:
+  A. data/derived/phase3/                        (active phase3)
+  B. H2_PUBLICATION_RELEASE/fleet_expansion_30galaxy/phase3_outputs/
+  C. H2_PUBLICATION_RELEASE/fleet_expansion_50galaxy/  (no subdirs)
+  D. H2_PUBLICATION_RELEASE/fleet_expansion_80galaxy/  (no subdirs)
+  E. All other paths in repo (find -name "leff_*.csv")
+
+Directories searched for rc_decomp_*_H2_adaptive.csv:
+  A. data/derived/phase4/h2_outputs/             (active phase4)
+  B. H2_PUBLICATION_RELEASE/fleet_expansion_30galaxy/phase4_outputs/
+  C. H2_PUBLICATION_RELEASE/fleet_expansion_50galaxy/  (no subdirs)
+  D. H2_PUBLICATION_RELEASE/fleet_expansion_80galaxy/  (no subdirs)
+  E. All other paths in repo (find -name "*H2_adaptive*.csv")
+
+
+═══════════════════════════════════════════════════════
+2. ARCHIVE INVENTORY RESULTS
+═══════════════════════════════════════════════════════
+
+Phase4 H2 adaptive CSVs found:
+  Source A (active)        : 9  galaxies  [Tier A — pilot]
+  Source B (30gal archive) : 21 galaxies  [Tier B — expansion]
+  Sources C, D, E          : 0  galaxies  ← NO Phase 2a/2b outputs anywhere
+
+Leff (phase3) CSVs found:
+  Source A (active)        : 30 galaxies  [Tier A+B copies after earlier run]
+  Source B (30gal archive) : 21 galaxies  [Tier B originals]
+  Sources C, D, E          : 0  galaxies  ← NO Phase 2a/2b leff files anywhere
+
+Publication release structure:
+  fleet_expansion_30galaxy/ : has phase3_outputs/ AND phase4_outputs/
+  fleet_expansion_50galaxy/ : fleet_summary_50galaxy.csv + figures/ ONLY
+  fleet_expansion_80galaxy/ : fleet_summary_80galaxy.csv + figures/ ONLY
+
+CONCLUSION: The Phase 2a (50-galaxy expansion) and Phase 2b (80-galaxy
+expansion) publication releases archived only fleet summary CSVs and
+figures. Per-galaxy phase3 and phase4 outputs were NOT archived for
+these phases.
+
+
+═══════════════════════════════════════════════════════
+3. THE 44 TIER C GALAXIES — DETAILED STATUS
+═══════════════════════════════════════════════════════
+
+Phase 2a — 17 Tier C galaxies (Phase 2a minus 3 excluded):
+  Galaxy       Regime       Vk/Vb   delta_σ_kms  flag
+  D564-8       balanced     0.9282  0.0          —
+  F563-1       DM-dom       1.5883  0.0          —
+  NGC0247      DM-dom       1.5070  0.0          —
+  NGC2976      baryon-dom   0.1574  0.0          —
+  NGC4085      baryon-dom   0.1365  0.0          —
+  NGC4559      balanced     0.9261  0.0          negative_r
+  UGC00191     balanced     1.0305  0.0          —
+  UGC00731     balanced     0.8021  0.0          —
+  UGC04278     balanced     1.0379  0.0          —
+  UGC05918     balanced     1.0607  0.0          —
+  UGC06399     DM-dom       1.5141  0.0          —
+  UGC06628     baryon-dom   0.1499  0.0          —
+  UGC07261     baryon-dom   0.0272  0.0          —
+  UGC07323     balanced     0.9551  0.0          —
+  UGC09037     baryon-dom   0.0794  0.0          —
+  UGC11557     baryon-dom   0.0544  0.0          —
+  UGC11820     balanced     1.0942  0.0          —
+
+Phase 2b — 27 Tier C galaxies (Phase 2b minus 3 excluded):
+  Galaxy       Regime       Vk/Vb   delta_σ_kms  flag
+  DDO064       baryon-dom   0.4673  0.0          —
+  DDO154       DM-dom       1.6657  0.0          —
+  DDO170       balanced     1.3159  0.0          —
+  F565-V2      DM-dom       1.6227  0.0          —
+  F568-3       balanced     1.4027  0.0          —
+  F568-V1      DM-dom       1.8410  0.0          —
+  F583-1       balanced     1.1902  0.0          —
+  NGC0100      baryon-dom   0.4592  0.0          —
+  NGC1090      balanced     1.4534  0.0          —
+  NGC4088      baryon-dom   0.5640  0.0          negative_r
+  NGC4183      balanced     1.4182  0.0          —
+  NGC4214      baryon-dom   0.7946  0.0          —
+  UGC02916     balanced     1.1427  0.0          —
+  UGC05005     DM-dom       1.9632  0.0          —
+  UGC06818     baryon-dom   0.3931  0.0          —
+  UGC06917     balanced     1.2472  0.0          —
+  UGC06930     balanced     1.3028  0.0          —
+  UGC07089     baryon-dom   0.7064  0.0          —
+  UGC07151     baryon-dom   0.5146  0.0          —
+  UGC07577     baryon-dom   0.1979  0.0          —
+  UGC07603     baryon-dom   0.5145  0.0          —
+  UGC08286     DM-dom       1.9052  0.0          —
+  UGC08550     balanced     1.2928  0.0          —
+  UGC11914     balanced     1.1562  0.0          —
+  UGC12632     baryon-dom   0.7711  0.0          —
+  UGC12732     baryon-dom   0.5830  0.0          —
+  UGCA444      balanced     1.4693  0.0          —
+
+
+═══════════════════════════════════════════════════════
+4. INNER-COVERAGE N/A SEPARATION
+═══════════════════════════════════════════════════════
+
+The 6 "inner_coverage" galaxies (flag = inner_coverage in 80galaxy summary):
+  F567-2, UGC09992, UGC05999, NGC6789, NGC4389, UGC00634
+
+These are in the EXCLUDED set — NOT in the 74-galaxy comparison set.
+They are excluded from ALL three analyses (NFW, MOND, H2) because
+SPARC rotmod inner region has n_inner < 3 points.
+
+NONE of the 44 Tier C galaxies carry an inner_coverage flag.
+
+The 44 Tier C galaxies are therefore NOT measurement N/A cases.
+They are valid H2 fleet members with confirmed delta_sigma_kms = 0.0
+whose per-galaxy phase4 outputs were simply not included in the
+Phase 2a/2b publication releases.
+
+
+═══════════════════════════════════════════════════════
+5. CLASSIFICATION SUMMARY
+═══════════════════════════════════════════════════════
+
+Category                        N    Description
+─────────────────────────────────────────────────────
+Tier A: explicit (pilot)        9    Active phase4 CSVs
+Tier B: explicit (expansion)   21    30galaxy pub-release phase4 CSVs
+Tier C: no_archive             44    Valid fleet members, no phase4 file
+  ├─ negative_r flag            2    (NGC4559, NGC4088) — valid null
+  └─ plain null                42    delta_sigma_kms = 0.0, no flag
+
+Excluded (inner_coverage)       6    Not in comparison set
+
+Tier A+B (explicit)            30    Used in h2_full74_explicit_summary.csv
+Comparison set total           74    = Tier A + Tier B + Tier C
+
+
+═══════════════════════════════════════════════════════
+6. ARCHIVAL GAP CAUSE
+═══════════════════════════════════════════════════════
+
+The gap is structural, not random:
+  - fleet_expansion_30galaxy/ was published with full phase3 + phase4 outputs
+  - fleet_expansion_50galaxy/ and fleet_expansion_80galaxy/ were published
+    with fleet summary CSVs and figures only — phase4 per-galaxy outputs
+    were not included.
+
+This means 44/80 fleet galaxies (55%) have no archived log10-dex
+phase4 output. The fleet summary records delta_sigma_kms = 0.0 for all
+of them (stop rule never triggered), but the log10-dex sigma_H2 metric
+cannot be computed without the phase4 CSV or a working phase4 rerun.
+
+
+═══════════════════════════════════════════════════════
+7. IMPLICATIONS FOR THE MANUSCRIPT
+═══════════════════════════════════════════════════════
+
+Explicit H2 sub-sample (30 galaxies):
+  - All are genuine H2 pipeline outputs
+  - Median |Δσ_H2| = 0.000860 dex (confirmed null result)
+  - Covers Vk/Vb range 0.027–0.981 (baryon-dom to balanced)
+  - Only 2 DM-dominated galaxies in explicit set (NGC3893, NGC6503)
+
+Cannot-compute Tier C (44 galaxies):
+  - All have documented delta_sigma_kms = 0.0 in fleet summary
+  - This is the km/s metric, not log10-dex; direct conversion not possible
+  - Honest description: "no archived phase4 output; km/s fleet null result
+    documented but log10-dex sigma not computable from available files"
+  - Do NOT impute, proxy, or fill these values
+
+Regime coverage of explicit 30-galaxy sub-sample:
+  baryon-dom: 18  (out of 39 in full 74 set = 46%)
+  balanced  : 10  (out of 30 in full 74 set = 33%)
+  DM-dom    :  2  (out of 11 in full 74 set = 18%)
+
+The DM-dominated regime is most underrepresented in the explicit
+sub-sample. This should be acknowledged as a limitation.
+
+
+═══════════════════════════════════════════════════════
+8. VERDICT
+═══════════════════════════════════════════════════════
+
+Q: Do any Tier C galaxies have archived phase4 outputs?
+A: NO. Zero. Exhaustive repo search confirmed.
+
+Q: Do any Tier C galaxies have archived leff (phase3) files?
+A: NO. Zero. Only Tier A+B have leff files anywhere.
+
+Q: Are any Tier C galaxies inner-coverage N/A cases?
+A: NO. The 6 inner_coverage galaxies are all in the EXCLUDED set,
+   not in the 44 Tier C galaxies.
+
+Q: What are the 44 Tier C galaxies?
+A: Valid H2 fleet members with confirmed fleet null result
+   (delta_sigma_kms = 0.0) but no archived log10-dex phase4 output.
+   They are "no_archive" cases, not "measurement failure" cases.
+
+Q: Can the 44 be recovered without rerunning the H1 basis pipeline?
+A: NO. Phase4 requires H1 basis runs at multiple L values, and the
+   H1 basis pipeline currently fails at L=10 kpc for all tested
+   galaxies (NGC3198, NGC3521). Recovery would require either:
+   (a) fixing the H1 basis computation at L=10 kpc, or
+   (b) modifying phase4 BasisConfig to exclude L=10 from the grid.
+   Neither is within the scope of the current comparative_validation task.

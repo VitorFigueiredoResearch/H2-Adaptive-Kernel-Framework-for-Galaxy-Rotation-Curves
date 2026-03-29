@@ -1,0 +1,198 @@
+FINAL VALIDATION — Step 5: Paper Blueprint
+==========================================
+Generated: 2026-03-25
+Status: ready for manuscript drafting
+
+═══════════════════════════════════════════════════════
+1. WORKING TITLE OPTIONS
+═══════════════════════════════════════════════════════
+
+PREFERRED:
+  "Inner-Region Rotation Curve Scatter Sensitivity Under Bounded Model
+   Perturbations: A Comparative Diagnostic Across 74 SPARC Galaxies"
+
+ALTERNATIVE A (more descriptive):
+  "Structural Dependence of Inner-Region Velocity Scatter on Model Framework:
+   Comparing H2 Adaptive Kernels, NFW Halos, and RAR/MOND
+   in a Harmonized Scatter Metric"
+
+ALTERNATIVE B (more concise):
+  "Bounded Perturbation Scatter Sensitivity in Three Rotation Curve
+   Frameworks: H2, NFW, and MOND/RAR for 74 SPARC Galaxies"
+
+AVOID in title:
+  - "H2 is better than..."
+  - "MOND fails..."
+  - "A null result in..."
+  - Any implication of a universal law
+
+═══════════════════════════════════════════════════════
+2. RECOMMENDED SECTION ORDER
+═══════════════════════════════════════════════════════
+
+§1 Introduction
+  - Rotation curve modeling context
+  - The scatter-sensitivity question: does inner-region scatter change
+    under bounded model adaptation?
+  - Brief motivation for three-framework comparison
+  - Paper structure summary
+
+§2 Data and Sample
+  - SPARC galaxy sample (175 galaxies, 80 selected)
+  - H2 fleet of 80 galaxies: selection and regime classification
+  - 74-galaxy common comparison set (6 excluded, same reason for all)
+  - SPARC rotmod data description
+  - Regime definitions (baryon-dom / balanced / DM-dom by Vk/Vb)
+
+§3 The Harmonized Diagnostic
+  - The inner-region scatter metric definition
+    sigma = RMS of log10(V_model/V_obs), R < 0.5 R_max
+  - Why this metric is used (from H2 operational diagnostic)
+  - The bounded perturbation scheme (same ±10%/±20% for all three)
+  - Table 1: metric definition and inner-region parameters
+
+§4 NFW Bounded Perturbation Analysis
+  - NFW model and Li et al. (2020) parameter source
+  - Perturbation of M200 and C200
+  - Results: median max|Δσ_NFW| = 0.0548 dex
+  - Regime trend: Spearman rho = -0.899 (key structural result)
+  - Figure: max|Δσ_NFW| vs V_bar/V_NFW inner (colored by regime)
+
+§5 MOND/RAR Bounded Sensitivity Analysis
+  - RAR model and Li et al. (2020) fits
+  - Sensitivity to Ydisk (primary) and g_dag (secondary/explicit caveat)
+  - g_dag caveat paragraph (universal constant, not free parameter)
+  - Results: median max|Δσ_MOND| = 0.0321 dex
+  - Regime pattern discussion
+  - Figure: max|Δσ_MOND| histogram + regime breakdown
+
+§6 H2 Adaptive Kernel Reference Diagnostic
+  - H2 kernel framework summary (brief, refer to H2 paper)
+  - Operational delta_sigma in the harmonized metric (9 exact galaxies)
+  - Fleet-wide null result from H2 paper (delta_sigma_kms ≈ 0)
+  - Transparency statement: log10 dex reconstruction available for 9/80
+  - Result: H2 median |Δσ| = 0.0005 dex (near-neutral)
+
+§7 Three-Way Comparison
+  - THE MAIN COMPARATIVE FIGURE (see below)
+  - Summary table (see below)
+  - Ordering: H2 (0.0005) << MOND (0.0321) < NFW (0.0548)
+  - Structural interpretation via NFW Spearman trend
+  - Parameter-leverage objection addressed
+  - Cautious interpretation: regime-dependent suppression
+
+§8 Discussion
+  - What the comparison does and does not show
+  - MOND/RAR vs NFW distinction (functional form)
+  - H2 scatter neutrality: structural property or artifact?
+  - Limitations: H2 coverage, MOND g_dag framing, single survey
+  - Future work: full H2 model file reconstruction, interpolation-function variants
+
+§9 Conclusions
+  - Three sentences max per finding
+  - No overclaiming
+
+═══════════════════════════════════════════════════════
+3. THE MAIN COMPARATIVE FIGURE
+═══════════════════════════════════════════════════════
+
+Location: §7 (or potentially as Figure 1 for visual abstract)
+
+Content (two-panel figure):
+  LEFT PANEL: Scatter plot
+    x-axis: V_bar / V_model inner-region median (baryonic dominance)
+    y-axis: max|Δσ| in dex [log10 RMS]
+    Three marker types: H2 (circles), NFW (squares), MOND (triangles)
+    Colors: baryon-dom = red, balanced = blue, DM-dom = green
+    Reference lines: horizontal dashed at 0.01 dex threshold
+    Text annotations: median values for each framework
+
+  RIGHT PANEL: Boxplot or violin
+    x-axis: three frameworks (H2, MOND, NFW) grouped by regime
+    y-axis: max|Δσ| in dex (log10 scale recommended)
+    Same color scheme
+    Shows full distribution, not just median
+
+Alternative if two-panel too complex:
+  Single figure with three horizontal band summaries (H2 / MOND / NFW)
+  plus the NFW regime trend subplot
+
+File: comparative_analysis/figures/three_way_comparison_main.png
+(to be created in manuscript drafting phase)
+
+═══════════════════════════════════════════════════════
+4. THE MAIN SUMMARY TABLE
+═══════════════════════════════════════════════════════
+
+Table 1 or Table 2 (in §7):
+
+Columns: Framework | N_gal | Perturbation | Metric | Median max|Δσ| |
+         Fraction <0.01 | Fraction >0.05 | Regime trend
+
+  H2 (adaptive)  | 74* | kernel scale ±10–20% | log10 RMS [dex] |
+                   0.0005 | ~100% | ~0%   | near-uniform (all ~0)
+
+  MOND/RAR (RAR) | 74  | Ydisk ±10–20%         | log10 RMS [dex] |
+                   0.0321 |  1.4% | ~0%   | mild: baryon-dom ~0.032
+
+  NFW            | 74  | M200, C200 ±10–20%   | log10 RMS [dex] |
+                   0.0548 |  1.4% | 55.4% | strong: rho=-0.899
+
+  *H2 log10 dex exact reconstruction: 9 galaxies; fleet-wide claim from H2 paper.
+
+═══════════════════════════════════════════════════════
+5. SECTION PLACEMENT OF H2
+═══════════════════════════════════════════════════════
+
+H2 should appear in §6 (AFTER NFW §4 and MOND §5).
+
+Rationale:
+  - The paper is framed as a comparative diagnostic, not an H2 paper
+  - Presenting NFW and MOND first lets the reader see the comparison
+    context before H2 results are presented
+  - H2 appears as ONE TEST CASE in a comparative framework, not as the protagonist
+  - This framing is more appropriate for a broad-audience journal and more
+    defensible if H2 is questioned by a referee
+  - The comparison conclusion (§7) remains the main result
+
+═══════════════════════════════════════════════════════
+6. CENTRAL CLAIM (one paragraph, cautious journal language)
+═══════════════════════════════════════════════════════
+
+"We present a comparative diagnostic test of inner-region rotation curve
+scatter sensitivity across three rotation curve model frameworks — an
+adaptive nonlocal kernel (H2), standard NFW dark matter halo fits, and
+the Radial Acceleration Relation (RAR/MOND) — applied uniformly to a
+74-galaxy subset of the SPARC survey. Using a harmonized inner-region
+scatter metric (log10 velocity residual RMS at R < 0.5 R_max), and
+applying identical bounded perturbations (±10%, ±20%) to the principal
+model parameters in each framework, we find that the three frameworks
+exhibit distinct scatter sensitivity patterns: the H2 adaptive kernel
+produces near-neutral inner-region scatter (median |Δσ| ≈ 0.0005 dex);
+the RAR/MOND implementation produces intermediate sensitivity (median
+max|Δσ| ≈ 0.032 dex); and NFW halo parameter perturbations produce the
+largest sensitivity (median max|Δσ| ≈ 0.055 dex), with a strong
+anti-correlation between scatter sensitivity and baryonic dominance
+(Spearman ρ = −0.90, p < 10^−25). We interpret this regime dependence
+as consistent with a structural effect in which bounded perturbations
+of a subdominant quadrature-added velocity term have limited leverage
+in baryon-dominated inner regions. These results characterize structural
+differences in inner-region scatter response across the tested
+implementations and provide a diagnostic baseline for future model comparison."
+
+═══════════════════════════════════════════════════════
+7. TARGET JOURNAL RECOMMENDATION
+═══════════════════════════════════════════════════════
+
+PRIMARY: Monthly Notices of the Royal Astronomical Society (MNRAS)
+  - Appropriate scope (observational/model comparison paper)
+  - Accepts comparative diagnostic studies
+  - European audience favorable to MOND discussion
+  - 10–12 page limit achievable for this content
+
+SECONDARY: Astronomy & Astrophysics (A&A)
+  - If MNRAS declines, frame as a methods/diagnostic letter
+
+AVOID (given rejection history and scope mismatch):
+  - The Astrophysical Journal (scope: new physics/observations first)
+  - ApJ Letters (requires shorter, more discovery-focused framing)

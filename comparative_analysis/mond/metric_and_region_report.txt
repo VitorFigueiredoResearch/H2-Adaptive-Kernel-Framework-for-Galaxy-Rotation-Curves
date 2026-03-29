@@ -1,0 +1,44 @@
+MOND Comparison — Metric and Inner-Region Convention Report
+============================================================
+Generated: 2026-03-24
+
+1. HARMONIZED SCATTER METRIC
+------------------------------
+Metric: RMS of log10(V_model) - log10(V_obs) [dex]
+
+  sigma = sqrt( mean( [log10(V_tot(R_i)) - log10(V_obs(R_i))]^2 ) )
+
+Source: Directly from H2 operational diagnostic (diagnostics/test3_inner_scatter.py)
+        and confirmed as the metric used in the NFW comparative analysis.
+
+For the MOND/RAR comparison:
+  V_tot(r) = sqrt(g_obs(r) * r)  where g_obs is from the RAR formula
+
+This metric is IDENTICAL to the one used in:
+  - H2: diagnostics/test3_inner_scatter.py
+  - NFW: comparative_analysis/nfw/nfw_perturbation_diagnostic.py
+  - Metric harmonization: comparative_analysis/metric_harmonization/
+
+2. INNER REGION DEFINITION
+---------------------------
+Inner region: R < 0.5 * R_max
+  where R_max = max(R_obs) = maximum observed radius in the rotmod file
+
+This is IDENTICAL to:
+  - H2 (inner_frac = 0.5, confirmed in test3_inner_scatter.py)
+  - NFW comparative analysis (same definition applied)
+
+Minimum valid inner points: n_inner >= 3
+
+3. PERTURBATION REPORTING CONVENTION
+--------------------------------------
+delta_sigma = sigma_perturbed - sigma_baseline
+max_abs_delta_sigma = max over all perturbations of |delta_sigma|
+
+This matches the NFW reporting exactly (nfw_perturbation_summary.csv columns).
+
+4. REFERENCE TO EXISTING REPORTS
+----------------------------------
+NFW metric confirmation: comparative_analysis/nfw/data_inspection_report.txt
+H2 metric confirmation:  comparative_analysis/metric_harmonization/h2_metric_inspection_report.txt
+Metric choice rationale: comparative_analysis/metric_harmonization/metric_choice_report.txt

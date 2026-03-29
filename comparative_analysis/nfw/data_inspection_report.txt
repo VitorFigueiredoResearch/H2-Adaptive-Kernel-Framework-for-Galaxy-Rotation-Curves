@@ -1,0 +1,107 @@
+NFW Catalog Data Inspection Report
+====================================
+Generated: 2026-03-24
+
+1. CATALOG METADATA
+-------------------
+Title: A comprehensive catalog of dark matter halo models for SPARC galaxies
+Authors: P. Li, F. Lelli, S. McGaugh, J. Schombert (2020)
+Reference: Li et al. (2020), ApJS 247, 31
+Primary file: data/nfw/Fits/ByModel/Table/parameter_NFW_LCDM.mrt
+Alternate file: data/nfw/Fits/ByModel/Table/parameter_NFW_Flat.mrt
+
+Columns and Units (byte-by-byte fixed-width, 1-indexed in MRT format):
+  Bytes   Format  Units              Label        Description
+  ------  ------  -----------------  -----------  ----------------------------------
+   1-14   I14     ---                Name         Galaxy name
+  15-19   F5.2    ---                Ydisk        Stellar M/L ratio for disks
+  20-24   F5.2    ---              e_Ydisk        Error on Ydisk
+  25-29   F5.2    ---                Ybul         Stellar M/L ratio for bulges
+  30-34   F5.2    ---              e_Ybul         Error on Ybul
+  35-40   F6.2    Mpc                D            Galaxy distance
+  41-45   F5.2    Mpc              e_D            Error on distance
+  46-50   F5.1    deg                inc          Disk inclination
+  51-55   F5.1    deg              e_inc          Error on inclination
+  56-62   F7.2    km/s               V200         Rotation velocity at r200
+  63-68   F6.2    km/s             e_V200         Error on V200
+  69-75   F7.2    ---                C200         Halo concentration
+  76-82   F7.2    ---              e_C200         Error on C200
+  83-89   F7.2    kpc                rs           Halo scale radius
+  90-96   F7.2    kpc              e_rs           Error on rs
+  97-102  F6.2    [M_sun/pc^3]       log(rhos)    Log volume density of DM halo
+ 103-108  F6.2    [M_sun/pc^3]     e_log(rhos)    Error on log(rhos)
+ 109-114  F6.2    [M_sun]            log(M200)    Log halo mass
+ 115-119  F5.2    [M_sun]          e_log(M200)    Error on log(M200)
+ 120-125  F6.2    ---                Chi          Reduced chi-squared
+
+Parsing convention (0-indexed Python):
+  name = line[:14].strip()
+  vals = line[14:].split()
+  vals[0]=Ydisk, vals[1]=e_Ydisk, vals[2]=Ybul, vals[3]=e_Ybul,
+  vals[4]=D, vals[5]=e_D, vals[6]=inc, vals[7]=e_inc,
+  vals[8]=V200, vals[9]=e_V200, vals[10]=C200, vals[11]=e_C200,
+  vals[12]=rs, vals[13]=e_rs, vals[14]=log_rhos, vals[15]=e_log_rhos,
+  vals[16]=log_M200, vals[17]=e_log_M200, vals[18]=Chi
+  Note: Chi may be 'inf' for some galaxies — handle gracefully.
+
+2. COSMOLOGICAL PARAMETERS
+---------------------------
+H0 = 73 km/s/Mpc  (Li et al. 2020 adopted value)
+rho_crit(z=0) = 9.47e-27 kg/m^3  (WMAP9)
+Omega_m = 0.27  (WMAP9)
+Overdensity definition: Delta = 200 × rho_crit
+
+3. PARAMETER CONVENTIONS
+--------------------------
+V200: circular velocity at r200, the radius where mean enclosed density = 200 × rho_crit [km/s]
+r200: r200 [kpc] = V200 [km/s] / (10 × H0 [km/s/Mpc] / 1000)
+      = V200 / 0.73  (for H0=73 km/s/Mpc)
+C200: dimensionless halo concentration = r200 / rs  (dimensionless)
+rs:   NFW scale radius, directly in kpc in the catalog (use as-is)
+rhos: characteristic density in M_sun/pc^3, stored as log10(rhos)
+M200: halo mass at r200 in M_sun, stored as log10(M200)
+
+NFW profile formula:
+  V^2_NFW(r) = V200^2 × (r200/r) × f(r/rs) / f(C200)
+  where f(x) = ln(1+x) - x/(1+x)
+
+4. VERIFICATION: r200 FORMULA
+-------------------------------
+Test galaxy: D564-8
+  V200 = 36.53 km/s  (from catalog)
+  C200 = 5.27        (from catalog)
+  rs (catalog) = 9.49 kpc
+  r200 (computed) = 36.53 / 0.73 = 50.04 kpc
+  rs (computed) = r200 / C200 = 50.04 / 5.27 = 9.50 kpc
+  Residual: |rs_calc - rs_catalog| = |9.50 - 9.49| = 0.01 kpc  ✓
+  Verification: PASSED (agreement within rounding)
+
+5. INNER REGION DEFINITION
+---------------------------
+Inner region: R < 0.5 × R_max, where R_max = max(R_obs) from rotmod file
+This matches H2 diagnostic definition (diagnostics/test3_inner_scatter.py, inner_frac=0.5)
+Minimum required data points in inner region: n_inner >= 3
+
+6. SCATTER METRIC
+------------------
+Scatter sigma = RMS of [log10(V_model) - log10(V_obs)] over inner region points
+  = sqrt( mean( [log10(V_tot(R_i)) - log10(V_obs(R_i))]^2 ) )
+where V_tot = sqrt(V_bar^2 + V_NFW^2) and V_bar = sqrt(Vgas^2 + Vdisk^2 + Vbul^2)
+
+7. MATCH COUNT: H2 FLEET vs NFW CATALOG
+-----------------------------------------
+H2 fleet galaxies: 80
+NFW catalog entries: 175
+Galaxies in H2 fleet AND NFW catalog: 80
+Galaxies in H2 fleet NOT in NFW catalog: 0
+Coverage: 100% of H2 fleet galaxies have NFW fits in Li et al. (2020)
+
+8. NFW MODEL VARIANTS IN CATALOG
+----------------------------------
+NFW_LCDM: NFW profile with ΛCDM priors (primary, used in this analysis)
+  - Priors based on ΛCDM concentration-mass relation
+  - File: parameter_NFW_LCDM.mrt
+NFW_Flat:  NFW profile with flat (uninformative) priors
+  - No cosmological priors on concentration
+  - File: parameter_NFW_Flat.mrt
+This analysis uses NFW_LCDM as primary for consistency with cosmological context.

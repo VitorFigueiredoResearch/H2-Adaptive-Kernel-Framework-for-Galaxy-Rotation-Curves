@@ -28,3 +28,16 @@ data/sparc/
 data/derived/
 *.dat
 *.log
+
+# LaTeX build artifacts
+*.aux
+*.bbl
+*.blg
+*.synctex.gz
+*.dvi
+*.out
+*.fls
+*.fdb_latexmk
+
+# Backup archives (not for distribution)
+*.zip

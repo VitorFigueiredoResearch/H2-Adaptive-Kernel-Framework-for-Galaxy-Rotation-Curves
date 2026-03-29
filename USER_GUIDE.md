@@ -1,6 +1,6 @@
 # H2 Adaptive Kernel Framework — User Guide
 
-> **Version:** 9-galaxy validated build · **Date:** 2026-02-24
+> **Version:** Comparative paper release (v2.0) · **Date:** 2026-03-28
 > **Python:** 3.12 · **Platform tested:** Windows 10/11 (Anaconda), Linux
 
 ## Setup

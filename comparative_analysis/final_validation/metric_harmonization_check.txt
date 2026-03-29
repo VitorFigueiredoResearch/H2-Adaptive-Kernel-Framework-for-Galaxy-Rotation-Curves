@@ -1,0 +1,129 @@
+FINAL VALIDATION — Step 1: Metric Harmonization Check
+=======================================================
+Generated: 2026-03-25
+Sources inspected:
+  diagnostics/test3_inner_scatter.py
+  comparative_analysis/metric_harmonization/metric_choice_report.txt
+  comparative_analysis/metric_harmonization/h2_metric_inspection_report.txt
+  comparative_analysis/nfw/nfw_perturbation_diagnostic.py (design)
+  comparative_analysis/mond/data_inspection_report.txt
+  comparative_analysis/mond/mond_perturbation_diagnostic.py (design)
+
+═══════════════════════════════════════════════════════
+1. THE HARMONIZED METRIC — DEFINITION
+═══════════════════════════════════════════════════════
+
+  sigma = sqrt( mean( (log10(V_model) - log10(V_obs))^2 ) )
+
+  Units: dex (dimensionless log10-ratio RMS)
+  Inner region: R < 0.5 * R_max
+    where R_max = maximum radius in the observed SPARC rotmod grid
+    (strict less-than; applies to each galaxy independently)
+  Interpolation: V_model interpolated onto the observed R grid
+  Minimum points: n_inner >= 3 required for a valid scatter estimate
+  Guard: velocities clipped to eps=1e-12 before log (prevents log(0))
+
+═══════════════════════════════════════════════════════
+2. PER-ANALYSIS VERIFICATION
+═══════════════════════════════════════════════════════
+
+H2 (source: test3_inner_scatter.py, lines 18–30):
+  Formula: sqrt(mean((log10(V_model) - log10(V_obs))^2))     ✓
+  Inner region: R < 0.5 * R_max                               ✓
+  Interpolation: np.interp onto observed R grid               ✓
+  Units: dex                                                   ✓
+  STATUS: EXACT IMPLEMENTATION (code-verified)
+
+NFW (source: nfw_perturbation_diagnostic.py design):
+  Formula: same log10 RMS in dex                              ✓
+  Inner region: R < 0.5 * R_max                               ✓
+  Interpolation: V_NFW evaluated at observed R points         ✓
+  Units: dex (confirmed in nfw_perturbation_summary.csv       ✓
+         column names: sigma_baseline, delta_sigma_*)
+  STATUS: EXACT MATCH with H2 metric
+
+MOND/RAR (source: mond_perturbation_diagnostic.py design):
+  Formula: same log10 RMS in dex                              ✓
+  Inner region: R < 0.5 * R_max                               ✓
+  Interpolation: V_MOND evaluated at observed R points        ✓
+  Units: dex (confirmed in mond_perturbation_summary.csv)     ✓
+  STATUS: EXACT MATCH with H2 metric
+
+═══════════════════════════════════════════════════════
+3. DELTA-SIGMA DEFINITIONS (slight structural difference)
+═══════════════════════════════════════════════════════
+
+H2:   delta_sigma = sigma(V_H2_adaptive) - sigma(V_H1_baseline)
+      → model-vs-baseline: one specific perturbation (H1→H2 adaptation)
+
+NFW:  delta_sigma_* = sigma(V_NFW_perturbed) - sigma(V_NFW_baseline)
+      → max_abs_delta_sigma = max over all perturbation magnitudes/signs
+      → worst-case across ±10%, ±20% in M200, C200, and both
+
+MOND: delta_sigma = sigma(V_MOND_perturbed) - sigma(V_MOND_baseline)
+      → max_abs_delta_sigma = max over all perturbation magnitudes/signs
+      → worst-case across ±10%, ±20% in g_dag, Ydisk, and both
+
+ASSESSMENT:
+  H2 reports a single specific delta (H1→H2 model change).
+  NFW and MOND report worst-case sensitivity over multiple perturbation
+  directions. These measure slightly different things:
+    - H2 asks: "how much does this particular model change scatter?"
+    - NFW/MOND ask: "what is the maximum scatter sensitivity to bounded
+      parameter variations?"
+  This is a structural comparison, not a unit or formula mismatch.
+  The comparison is COMMENSURABLE but not IDENTICAL in experimental design.
+  This distinction must be acknowledged in the manuscript.
+
+═══════════════════════════════════════════════════════
+4. MISMATCH CHECK
+═══════════════════════════════════════════════════════
+
+Scientific mismatch (formula/unit/inner-region):  NONE
+Structural mismatch (single-shot vs worst-case):  EXISTS — documented above
+Textual mismatch (fleet_summary delta_sigma_kms): EXISTS but is irrelevant
+  — this column is NOT used in the harmonized comparison
+
+═══════════════════════════════════════════════════════
+5. H2 COVERAGE CAVEAT
+═══════════════════════════════════════════════════════
+
+H2 adaptive model files (phase4/h2_outputs/): available for 9/80 galaxies
+  IC2574, NGC0891, NGC2903, NGC3198, NGC3893, NGC5055, NGC5585, NGC6503, NGC6946
+
+For these 9 galaxies:
+  H2 delta_sigma reconstructed exactly in the harmonized metric
+  Median |delta_sigma| = 0.0005 dex;  Max = 0.0032 dex
+
+For the remaining 71 fleet galaxies:
+  H2 adaptive model files not present in the repository
+  The H2 null result (delta_sigma ~ 0) for these 71 galaxies derives
+  from the fleet_summary_80galaxy.csv field 'delta_sigma_kms', which is
+  a DIFFERENT metric (linear km/s-based, not log10 dex RMS)
+  The harmonized dex reconstruction cannot be independently verified
+  for these 71 galaxies from available files
+
+IMPLICATION FOR THE PAPER:
+  The paper must state clearly:
+    "H2 delta_sigma is reconstructed in the harmonized log10 dex metric
+    for 9 galaxies (the original H2 pilot set). For the full 80-galaxy
+    fleet, the H2 null result is supported by the separate inner-coverage
+    diagnostic (delta_sigma_kms ≈ 0) but has not been independently
+    reconstructed in the log10 dex metric in this work."
+
+═══════════════════════════════════════════════════════
+6. VERDICT
+═══════════════════════════════════════════════════════
+
+METRIC HARMONIZATION STATUS:
+  Formula:       EXACTLY IDENTICAL across H2, NFW, MOND         ✓
+  Units:         EXACTLY IDENTICAL (dex, log10-RMS)             ✓
+  Inner region:  EXACTLY IDENTICAL (R < 0.5 * R_max)           ✓
+  Interpolation: EXACTLY IDENTICAL (onto observed R grid)       ✓
+  Structural:    SLIGHT DIFFERENCE (single vs worst-case)       ⚠
+  H2 coverage:   INCOMPLETE (9/80 exact; 71/80 inferred)        ⚠
+
+The comparison is VALID and HARMONIZED in metric convention.
+The structural difference (H2 single-shot vs NFW/MOND worst-case) and
+the H2 coverage gap are real limitations that must be stated transparently.
+They do not invalidate the comparison but set its interpretive boundary.

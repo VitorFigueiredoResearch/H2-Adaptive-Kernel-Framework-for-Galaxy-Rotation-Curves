@@ -1,6 +1,8 @@
-# H2 Adaptive Kernel Framework — Quick Start
+# SPARC Comparative Galaxy Dynamics — Quick Start
 
 > Full documentation: [USER_GUIDE.md](USER_GUIDE.md)
+>
+> Supporting paper: *"Inner-Region Scatter Response to Bounded Perturbations: A Comparative Analysis of 74 SPARC Galaxies"* (MNRAS, submitted 2026)
 
 ---
 
@@ -102,11 +104,42 @@ Compare against the validated 3-galaxy reference:
 
 ---
 
+## Comparative Paper Figure Scripts
+
+### Reproduce the three-way comparison figure (NFW / RAR / H2)
+
+From the repository root:
+
+```bash
+python scripts/Figures/generate_three_way_comparison.py
+```
+
+Output: `papers/H2_MNRAS/three_way_comparison.png` (300 dpi, MNRAS single-column)
+
+Requires:
+- `comparative_analysis/nfw/h2_nfw_comparison_summary.csv`
+- `comparative_analysis/mond/h2_mond_comparison_summary.csv`
+- `comparative_analysis/referee_resolution/h2_full74_explicit_summary.csv`
+
+Note: H2 is plotted using the **30 explicit archived galaxies** only (Tier A+B).
+The 44 Tier C galaxies (no archived log₁₀-dex output) are not plotted.
+
+### Reproduce the acceleration space figure (H2 fleet context)
+
+```bash
+PYTHONUTF8=1 python scripts/Figures/generate_acceleration_space_plot.py
+```
+
+Requires `data/sparc/` (SPARC rotation curves, not distributed here; download from [astroweb.cwru.edu/SPARC](http://astroweb.cwru.edu/SPARC/)).
+
+---
+
 ## Where to Get Help
 
 - **Full pipeline details and argument reference:** [USER_GUIDE.md §3](USER_GUIDE.md#3-running-the-pipeline)
 - **Test definitions and interpretation:** [USER_GUIDE.md §4–5](USER_GUIDE.md#4-understanding-the-tests)
 - **All troubleshooting:** [USER_GUIDE.md §10](USER_GUIDE.md#10-troubleshooting)
 - **Advanced: generating basis files for new galaxies:** [USER_GUIDE.md §6](USER_GUIDE.md#6-advanced-generating-new-basis-files)
-- **Validated results and findings:** [RESULTS_SUMMARY.md](RESULTS_SUMMARY.md)
+- **Comparative analysis reports:** `comparative_analysis/nfw/h2_nfw_comparison_report.txt`, `comparative_analysis/mond/h2_mond_comparison_report.txt`
+- **H2 archive tier audit:** `comparative_analysis/referee_resolution/tier_c_audit_report.txt`
 

@@ -1,0 +1,34 @@
+NFW Perturbation Diagnostic Report
+==================================================
+
+H2 fleet galaxies:          80
+NFW catalog entries:         175
+Successfully analyzed:       80
+Total excluded:              0
+
+Exclusion reasons:
+  Not in NFW catalog:        0
+  No SPARC rotmod file:      0
+  Non-physical params:       0
+
+Galaxies with n_inner < 3 (flagged, excluded from sensitivity figures):
+  F567-2
+  NGC4389
+  NGC6789
+  UGC00634
+  UGC05999
+  UGC09992
+
+Galaxies with n_inner >= 3 (used in sensitivity figures): 74
+
+Summary statistics for max|Delta_sigma| [dex]:
+  Mean:   0.0555
+  Median: 0.0548
+  Std:    0.0245
+  Min:    0.0067
+  Max:    0.1105
+
+  Regime 'baryon-dom' (N=35): mean=0.0463, median=0.0430
+  Regime 'balanced' (N=29): mean=0.0628, median=0.0633
+  Regime 'DM-dom' (N=10): mean=0.0668, median=0.0711
+

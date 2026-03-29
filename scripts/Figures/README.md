@@ -1,7 +1,10 @@
-# scripts/figures — H2 Figure Generation Scripts
+# scripts/Figures — Figure Generation Scripts
 
 This directory contains standalone Python scripts that generate publication
-figures for the H2 adaptive nonlocal kernel paper.
+figures for the comparative paper:
+
+*"Inner-Region Scatter Response to Bounded Perturbations: A Comparative Analysis of 74 SPARC Galaxies"*
+(Figueiredo, V. M. F., 2026, MNRAS submitted)
 
 ---
 
@@ -78,12 +81,86 @@ suitable for journal submission.
 
 If using this figure or script, cite:
 
-> Figueiredo, V. M. F. (2026). *Structural Limits of State-Driven Adaptive
-> Nonlocal Kernel Modulation in Galaxy Rotation Curves: A Null-Response
-> Diagnostic from 80 SPARC Galaxies.* MNRAS (submitted).
+> Figueiredo, V. M. F. (2026). *Inner-Region Scatter Response to Bounded
+> Perturbations: A Comparative Analysis of 74 SPARC Galaxies.* MNRAS (submitted).
 
 > McGaugh, S. S., Lelli, F., & Schombert, J. M. (2016). *Radial Acceleration
 > Relation in Rotationally Supported Galaxies.* PRL, 117, 201101.
+
+> Lelli, F., McGaugh, S. S., & Schombert, J. M. (2016). *SPARC: Mass Models
+> for 175 Disk Galaxies.* AJ, 152, 157.
+
+---
+
+## `generate_three_way_comparison.py` (v2.0)
+
+### Purpose
+
+Generates `three_way_comparison.png`: the main comparative figure for the MNRAS paper showing inner-region scatter sensitivity distributions for all three model classes side by side.
+
+### What the figure shows
+
+| Panel | Content |
+|---|---|
+| (a) Scatter plot | max\|Δσ\| (dex) vs V\_bar/V\_NFW for NFW (74), RAR (74), and H2 (30 explicit) |
+| (b) Box plots | Distribution summaries for NFW (N=74), RAR (N=74), H2 (N=30 explicit) |
+
+Key annotations:
+- NFW Spearman ρ = −0.899 (p < 10⁻²⁵, strong anti-correlation with baryonic dominance)
+- RAR Spearman ρ = +0.049 (p = 0.68, null — not significant)
+- Median reference lines per implementation
+- H2 plotted as 30 explicit Tier A+B galaxies only
+
+**H2 archive coverage:** The 44 Tier C galaxies (no archived phase4 log₁₀-dex output) are intentionally not plotted. See `comparative_analysis/referee_resolution/tier_c_audit_report.txt`.
+
+### Data inputs
+
+| File | Location |
+|---|---|
+| `h2_nfw_comparison_summary.csv` | `comparative_analysis/nfw/` |
+| `h2_mond_comparison_summary.csv` | `comparative_analysis/mond/` |
+| `h2_full74_explicit_summary.csv` | `comparative_analysis/referee_resolution/` |
+
+### Usage
+
+From the repository root:
+
+```bash
+python scripts/Figures/generate_three_way_comparison.py
+# Default output: papers/H2_MNRAS/three_way_comparison.png
+
+python scripts/Figures/generate_three_way_comparison.py --output path/to/output.png
+```
+
+### Output
+
+`three_way_comparison.png` — 3.46 × 5.5 inch, 300 dpi, MNRAS single-column width.
+
+### Validated medians (v2.0)
+
+| Implementation | Median max\|Δσ\| | N |
+|---|---|---|
+| NFW | 0.0548 dex | 74 |
+| RAR (adopted) | 0.0321 dex | 74 |
+| H2 (explicit) | 0.000860 dex | 30 |
+
+### Dependencies
+
+- Python ≥ 3.9
+- numpy, matplotlib, pandas (standard scientific stack; see `requirements.txt`)
+
+### Citation
+
+If using this figure or script, cite:
+
+> Figueiredo, V. M. F. (2026). *Inner-Region Scatter Response to Bounded
+> Perturbations: A Comparative Analysis of 74 SPARC Galaxies.* MNRAS (submitted).
+
+> Li, P., Lelli, F., McGaugh, S. S., & Schombert, J. M. (2020). *A Comprehensive
+> Catalog of Dark Matter Halo Models for SPARC Galaxies.* ApJS, 247, 31.
+
+> Lelli, F., McGaugh, S. S., & Schombert, J. M. (2016). *SPARC: Mass Models
+> for 175 Disk Galaxies.* AJ, 152, 157.
 
 > Lelli, F., McGaugh, S. S., & Schombert, J. M. (2016). *SPARC: Mass Models
 > for 175 Disk Galaxies.* AJ, 152, 157.

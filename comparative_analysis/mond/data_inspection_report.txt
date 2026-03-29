@@ -1,0 +1,97 @@
+MOND / RAR Comparative Analysis — Data Inspection Report
+==========================================================
+Generated: 2026-03-24
+
+1. DATA SOURCE
+--------------
+MOND model: Radial Acceleration Relation (RAR) from McGaugh, Lelli & Schombert (2016)
+            as fitted to SPARC galaxies by Li, Lelli, McGaugh & Schombert (2020)
+
+Primary parameter file:
+  data/nfw/Fits/ByModel/Table/parameter_RAR.mrt
+  (Part of the Li et al. 2020 catalog, same source as NFW fits)
+
+Per-galaxy model curves:
+  data/nfw/Fits/ByGalaxy/Table/{galaxy}.mrt
+  (Each file contains all model fits for one galaxy across all mass models)
+
+2. RAR COLUMN DEFINITIONS (from MRT header)
+--------------------------------------------
+Bytes    Format  Units   Label     Description
+1-14     I14     ---     Name      Galaxy name
+15-19    F5.2    ---     Ydisk     Best-fit stellar M/L ratio, disk component
+20-24    F5.2    ---     e_Ydisk   Error on Ydisk
+25-29    F5.2    ---     Ybul      Best-fit stellar M/L ratio, bulge component
+30-34    F5.2    ---     e_Ybul    Error on Ybul
+35-40    F6.2    Mpc     D         Galaxy distance
+41-45    F5.2    Mpc     e_D       Error on D
+46-50    F5.1    deg     inc       Disk inclination
+51-55    F5.1    deg     e_inc     Error on inclination
+61-66    F6.2    ---     Chi       Reduced chi-squared of RAR fit
+
+3. RAR PHYSICS CONVENTION
+--------------------------
+Model form: McGaugh, Lelli & Schombert (2016) RAR interpolation function
+
+  g_obs = g_bar / (1 - exp(-sqrt(g_bar / g_dag)))
+
+where:
+  g_bar  = baryonic centripetal acceleration = V_bar^2(r) / r
+  g_dag  = fundamental MOND acceleration scale (FIXED at 1.2e-10 m/s^2)
+  g_obs  = predicted total centripetal acceleration
+  V_tot  = sqrt(g_obs * r)  [in km/s if r in kpc and g in km^2/s^2/kpc]
+
+Unit conversion:
+  g in m/s^2 to km^2/s^2/kpc: multiply by 3.086e16 (1 kpc in m)
+  g_dag in working units: 1.2e-10 m/s^2 * 3.086e16 m/kpc = 3703.2 km^2/s^2/kpc
+
+No free DM parameters. Only free parameters: Ydisk, Ybul, D, inc.
+g_dag is NOT a free parameter in the Li et al. RAR fits — it is fixed.
+
+4. PERTURBATION SCHEME
+-----------------------
+Since g_dag is the fundamental MOND scale (not fitted), bounded perturbations
+of g_dag test the sensitivity of inner-region scatter to the MOND acceleration scale.
+This is the direct MOND analog of bounded NFW parameter perturbations.
+
+Primary perturbation: g_dag variation
+  Magnitudes: +/-10%, +/-20%
+  Motivation: g_dag ~ 1.2e-10 m/s^2 has a ~10% uncertainty in the literature
+              (Lelli+2017: 1.20 +/- 0.02 (stat) +/- 0.24 (syst))
+
+Secondary perturbation: Ydisk variation
+  Magnitudes: +/-10%, +/-20%
+  Motivation: directly comparable to NFW M/L perturbations; constrains
+              how much the inner-region scatter responds to stellar mass changes
+
+5. MATCH COUNT
+--------------
+RAR catalog galaxies: 175 (all SPARC galaxies)
+H2 fleet galaxies: 80
+Coverage: 100% (all 80 H2 fleet galaxies have RAR fits in Li et al. 2020)
+
+6. INNER REGION & SCATTER METRIC (reused from H2/NFW)
+------------------------------------------------------
+Inner region: R < 0.5 * R_max (where R_max = max observed radius from rotmod)
+Scatter metric: RMS of log10(V_model) - log10(V_obs) over inner-region points [dex]
+Minimum inner points for valid analysis: n_inner >= 3
+
+These definitions are identical to the H2 diagnostic (test3_inner_scatter.py)
+and the NFW comparative analysis. This ensures direct comparability.
+
+7. COSMOLOGY (same as NFW, from Li et al. 2020)
+------------------------------------------------
+H0 = 73 km/s/Mpc
+Note: RAR is independent of cosmology (no halo parameters). H0 only affects
+distance D, which is a fitted free parameter in the RAR anyway.
+
+8. AMBIGUITIES AND NOTES
+-------------------------
+- The RAR as fitted in Li et al. treats g_dag as FIXED (not a free parameter).
+  Therefore, perturbations of g_dag are "out-of-fit" variations rather than
+  parameter error propagation — this is intentional and matches the NFW scheme
+  (which also applies perturbations rather than propagating fit errors).
+- The RAR model velocity at each radius is derived from baryonic velocity
+  components scaled by the best-fit Ydisk and Ybul from the RAR fit.
+- No ambiguity in interpolation function: the McGaugh+2016 RAR formula is
+  the only function used in Li et al. 2020 (no "simple" vs "standard" variants).

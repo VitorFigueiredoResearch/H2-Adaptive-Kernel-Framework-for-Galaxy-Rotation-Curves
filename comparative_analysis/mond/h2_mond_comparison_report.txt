@@ -1,0 +1,89 @@
+H2 – MOND/RAR Comparative Scatter Analysis — Plain-Language Report
+====================================================================
+Generated: 2026-03-24
+
+1. METRIC COMPARABILITY
+------------------------
+Both H2 and MOND results are expressed in the harmonized metric:
+  RMS of log10(V_model) - log10(V_obs) over inner region (R < 0.5 * R_max)
+  Units: dex (dimensionless log10 residual)
+
+The comparison is EXACT in metric convention.
+Inner-region definition is IDENTICAL across H2, NFW, and MOND analyses.
+
+2. SAMPLE COUNTS
+-----------------
+  MOND galaxies analyzed:   74
+  NFW galaxies analyzed:    80
+  H2 galaxies available:    80
+  Galaxies in all three:    74
+
+3. MOND SCATTER SENSITIVITY — OVERALL
+---------------------------------------
+  Median max|Δσ| (MOND):    0.0321 dex
+  Median max|Δσ| (NFW):     0.0548 dex  (reference)
+  Median |Δσ|    (H2):      0.0005 dex  (reference)
+
+  Fraction of MOND galaxies with max|Δσ| < 0.01 dex:
+    1 / 74 = 1.4%
+
+  Near-neutral inner-region scatter (< 0.01 dex threshold): NO
+
+4. PER-REGIME BREAKDOWN
+------------------------
+
+  MOND max|Δσ| by regime:
+    DM-dom          n=10  median=0.0283  mean=0.0276  <0.01: 0%  >0.05: 0%
+    balanced        n=29  median=0.0327  mean=0.0296  <0.01: 3%  >0.05: 0%
+    baryon-dom      n=35  median=0.0321  mean=0.0332  <0.01: 0%  >0.05: 0%
+
+  NFW max|Δσ| by regime:
+    DM-dom          n=10  median=0.0711  mean=0.0668  <0.01: 0%  >0.05: 90%
+    balanced        n=29  median=0.0633  mean=0.0628  <0.01: 0%  >0.05: 66%
+    baryon-dom      n=35  median=0.0430  mean=0.0463  <0.01: 3%  >0.05: 37%
+
+  H2  |Δσ|   by regime:
+    DM-dom          n= 0  median=nan  mean=nan  <0.01: nan%  >0.05: nan%
+    balanced        n= 2  median=0.0024  mean=0.0024  <0.01: 100%  >0.05: 0%
+    baryon-dom      n= 7  median=0.0004  mean=0.0008  <0.01: 100%  >0.05: 0%
+
+5. INTERPRETATION
+------------------
+  Within the tested implementation:
+
+  a) Does MOND reproduce H2-like scatter neutrality?
+     Median MOND max|Δσ| = 0.0321 dex.
+     H2 delta_sigma ≈ 0.0005 dex (from harmonized metric reconstruction).
+     The MOND result does not reproduce H2-like scatter neutrality
+     within the adopted diagnostic.
+
+  b) Is MOND more similar to H2 or to NFW?
+     In the harmonized metric, MOND is closer to NFW (|Δ|=0.0227 vs H2 |Δ|=0.0316).
+
+  c) Physical interpretation:
+     The RAR model is a baryonic interpolation function, not a halo model.
+     Inner-region MOND velocities are dominated by baryonic acceleration in
+     baryon-dominated galaxies, meaning the MOND-side perturbation (g_dag)
+     acts differently from NFW halo perturbations: in the deep-MOND limit
+     (g_bar << g_dag), the model is more sensitive to g_dag; in the
+     Newtonian limit (g_bar >> g_dag), the model approaches V_bar regardless
+     of g_dag. This asymmetry is the physical reason for any regime dependence
+     observed in the MOND perturbation results.
+
+6. ASSUMPTIONS AND LIMITATIONS
+--------------------------------
+  - g_dag is held fixed in the Li et al. (2020) RAR fits; perturbations of g_dag
+    are "out-of-fit" variations, not formal parameter uncertainties. This matches
+    the spirit of the NFW scheme but is not identical in statistical interpretation.
+  - Ydisk perturbations are directly comparable to NFW M/L perturbations.
+  - The RAR interpolation function form is fixed (McGaugh+2016); no comparison
+    across different MOND interpolation functions is made here.
+  - Distance and inclination are held at Li et al. best-fit values (same as NFW).
+
+7. CAUTIONARY NOTES
+--------------------
+  - "consistent with" does not imply a universal law
+  - "does not reproduce" does not falsify MOND — it only characterizes the
+    inner-region scatter sensitivity within this specific diagnostic
+  - Results are valid within the tested implementations and sample
+  - No statement about the correct physical model is made here

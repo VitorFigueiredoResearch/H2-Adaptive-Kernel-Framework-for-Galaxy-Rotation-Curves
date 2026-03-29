@@ -13,21 +13,23 @@ This repository evolved from the original H2 adaptive-kernel framework into a br
 
 ## Repository Status
 
-**Current scientific status:** comparative analysis backbone complete
+**Manuscript:** *"Inner-Region Scatter Response to Bounded Perturbations: A Comparative Analysis of 74 SPARC Galaxies"* — submitted to Monthly Notices of the Royal Astronomical Society (MNRAS).
 
-Validated comparison classes currently included:
+**Current scientific status:** comparative analysis complete; manuscript under review.
+
+Validated comparison classes:
 
 - **H2 adaptive kernel**
 - **NFW halo perturbation analysis**
-- **MOND/RAR perturbation analysis**
+- **Adopted RAR (Radial Acceleration Relation) implementation**
 
 Common validated comparison set:
 
-- **74 SPARC galaxies**
-- same inner-region definition
-- same harmonized log10-RMS scatter metric (dex)
+- **74 SPARC galaxies** (from 80-galaxy H2 fleet; 6 excluded for insufficient inner-region coverage)
+- same inner-region definition (R < 0.5 × R\_max)
+- same harmonized log₁₀-RMS scatter metric (dex)
 
-This repository now supports a comparative manuscript focused on how different bounded model constructions respond to perturbations in the inner regions of galaxy rotation curves.
+This repository supports a comparative manuscript studying how different bounded model constructions respond to perturbations in the inner regions of galaxy rotation curves.
 
 ---
 
@@ -56,9 +58,9 @@ All three are evaluated with:
 
 For the current common 74-galaxy comparison set:
 
-- **H2:** median \(|\Delta\sigma| \approx 0.0005\) dex
-- **MOND/RAR:** median max\(|\Delta\sigma| \approx 0.0321\) dex
-- **NFW:** median max\(|\Delta\sigma| \approx 0.0548\) dex
+- **H2:** median \(|\Delta\sigma| \approx 0.0009\) dex (30 explicit archived galaxies; Tier A+B)
+- **MOND/RAR:** median max\(|\Delta\sigma| \approx 0.0321\) dex (N=74)
+- **NFW:** median max\(|\Delta\sigma| \approx 0.0548\) dex (N=74)
 
 Interpretation:
 
@@ -296,6 +298,8 @@ Important reproducibility notes:
 * the common comparison set uses **74 galaxies**
 * **6 galaxies** are excluded consistently where inner-region coverage is insufficient for stable scatter evaluation
 * metric harmonization and exclusion consistency are documented in the comparison-specific reports
+
+**H2 archive coverage note:** The H2 explicit scatter metric is available for **30 of the 74 comparison galaxies** (Tier A: 9 pilot galaxies; Tier B: 21 expansion galaxies). The remaining 44 galaxies (Tier C) are valid H2 fleet members but have no archived log₁₀-dex phase4 output. Their fleet summaries record Δσ = 0 km/s in velocity units, but this cannot be converted to log₁₀-dex without re-running the H1 basis pipeline. The 44 Tier C galaxies are not treated as near-zero values — they are simply not plotted in H2 scatter comparisons. Full documentation in `comparative_analysis/referee_resolution/tier_c_audit_report.txt`.
 
 ---
 

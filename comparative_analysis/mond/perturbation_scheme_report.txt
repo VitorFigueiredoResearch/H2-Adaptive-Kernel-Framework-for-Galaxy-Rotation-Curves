@@ -1,0 +1,70 @@
+MOND Perturbation Scheme Report
+================================
+Generated: 2026-03-24
+
+1. RATIONALE
+-------------
+The NFW analysis perturbed two halo parameters (mass M200 and concentration C200)
+by ±10% and ±20% to test scatter sensitivity without refitting. The MOND/RAR
+model has no halo parameters, so an analogous scheme must target the physically
+meaningful MOND-side quantities.
+
+Two bounded perturbations are applied:
+
+2. PRIMARY PERTURBATION: g_dag (fundamental acceleration scale)
+----------------------------------------------------------------
+g_dag_0 = 1.2e-10 m/s^2  (McGaugh+2016 best value)
+Perturbations: g_dag = g_dag_0 * (1 + delta), delta in {-0.20, -0.10, +0.10, +0.20}
+
+Scientific motivation:
+- g_dag is the central quantity in MOND — it sets where Newtonian dynamics
+  transitions to the MOND regime.
+- The systematic uncertainty on g_dag is ~20% (Lelli+2017, ApJ 836, 152:
+  g_dag = 1.20 +/- 0.02 (statistical) +/- 0.24 (systematic) x 10^-10 m/s^2).
+- Varying g_dag within this range tests whether the inner-region scatter is
+  sensitive to the fundamental MOND scale — analogous to varying M200 for NFW.
+- This is NOT a refit; the RAR Ydisk/Ybul parameters remain at their
+  Li et al. best-fit values. Only g_dag changes.
+
+3. SECONDARY PERTURBATION: Ydisk (stellar mass-to-light ratio)
+----------------------------------------------------------------
+Ydisk_0 = Li et al. (2020) RAR best-fit value per galaxy
+Perturbations: Ydisk = Ydisk_0 * (1 + delta), delta in {-0.20, -0.10, +0.10, +0.20}
+
+Scientific motivation:
+- Ydisk directly scales the stellar disk contribution to V_bar.
+- Perturbing Ydisk is directly comparable to the NFW M/L perturbation and
+  to the H2 analysis (which also varied kernel scale as a bounded parameter).
+- This tests whether inner-region scatter is sensitive to stellar mass uncertainty.
+- Same ±10%, ±20% magnitudes as NFW for direct comparability.
+- Ybul is varied proportionally only when Ybul > 0.01 (to avoid noise from
+  galaxies with negligible bulge contribution).
+
+4. COMBINED PERTURBATION
+--------------------------
+Both g_dag and Ydisk are varied simultaneously at ±10% and ±20%.
+This tests the worst-case scatter sensitivity to correlated parameter changes.
+
+5. PARAMETER VALIDITY CHECKS
+------------------------------
+- Perturbed g_dag must remain > 0 (always satisfied for ±20%)
+- Perturbed Ydisk must remain > 0 (always satisfied for ±20%)
+- No nonphysical parameter combinations are expected at these magnitudes
+
+6. WHAT IS NOT PERTURBED
+--------------------------
+- Distance D: not perturbed (same choice as NFW analysis)
+- Inclination inc: not perturbed (same choice as NFW analysis)
+- RAR interpolation function form: fixed (McGaugh+2016 form only)
+  The Li et al. catalog uses only this one form, so no "interpolation function
+  switching" perturbation is possible from this data source.
+
+7. COMPARISON TO NFW SCHEME
+-----------------------------
+NFW perturbation: M200 ±10%/20%, C200 ±10%/20%, both simultaneously
+MOND perturbation: g_dag ±10%/20%, Ydisk ±10%/20%, both simultaneously
+
+The NFW and MOND perturbations are not identical in nature, but they are
+analogous: both test the scatter sensitivity to bounded changes in the
+physically meaningful model parameters within their respective frameworks.
+Both use the same perturbation magnitudes and the same scatter metric.

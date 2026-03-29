@@ -1,0 +1,54 @@
+RAR Spearman Correlation — Referee Resolution
+=======================================================
+Generated: 2026-03-27
+
+x = V_bar_over_V_MOND (baryonic dominance proxy)
+y = mond_max_abs_ds   (max|Δσ_MOND| in dex)
+Source: C:\Users\Vitor\Documents\H1_H2_Documentation and repos\repos\H2-Adaptive-Kernel-Framework-for-Galaxy-Rotation-Curves\comparative_analysis\mond\h2_mond_comparison_summary.csv
+
+N   = 74
+ρ   = +0.0485
+p   = 6.814e-01
+
+NFW reference:
+  ρ_NFW = -0.899   p = 1.8e-27   N = 74
+
+By regime:
+  baryon-dom    N=35  ρ=-0.075  p=6.69e-01
+  balanced      N=29  ρ=+0.146  p=4.50e-01
+  DM-dom        N=10  ρ=+0.006  p=9.87e-01
+
+───────────────────────────────────────────────────────
+RESULT CLASSIFICATION: NULL — NOT SIGNIFICANT
+
+  ρ = +0.0485, p = 0.681  >>  0.05 significance threshold.
+
+  Interpretation: RAR scatter sensitivity shows NO significant
+  correlation with baryonic dominance (V_bar/V_MOND).
+
+  This is itself informative by contrast with NFW:
+    NFW: ρ = -0.899, p < 10⁻²⁵  (strong, significant)
+    RAR: ρ = +0.049, p = 0.681   (null, not significant)
+
+  Cautious physical framing (do not overstate):
+  RAR Ydisk perturbations act primarily through V_bar and
+  propagate similarly across baryonic-dominance regimes,
+  unlike NFW halo perturbations which have structurally
+  varying leverage with V_bar/V_tot.
+
+comparative_validation asymmetry resolution:
+  BEFORE: NFW had explicit Spearman (ρ = -0.899);
+          RAR had none — asymmetry vulnerable to comparative_validation.
+  AFTER:  RAR Spearman ρ = +0.049 (p = 0.681) computed.
+  Asymmetry resolved: both analyses now have a Spearman result.
+  The null RAR result is defensible and informative.
+
+Manuscript sentence (§5, cautious wording — do not overinterpret):
+  "To assess analogous regime-dependence in the RAR implementation,
+  we computed the Spearman correlation between the inner-region
+  baryonic-dominance proxy (median V_bar/V_MOND) and max|Δσ_MOND|
+  across the 74 common galaxies. We find no significant correlation
+  (ρ = +0.05, p = 0.68, N = 74), indicating that
+  RAR scatter sensitivity is approximately regime-independent
+  within the tested Ydisk perturbation bounds, in contrast
+  to the strong trend observed for NFW (ρ = −0.899, p < 10⁻²⁵)."
