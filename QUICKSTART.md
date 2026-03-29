@@ -119,7 +119,7 @@ Output: `papers/H2_MNRAS/three_way_comparison.png` (300 dpi, MNRAS single-column
 Requires:
 - `comparative_analysis/nfw/h2_nfw_comparison_summary.csv`
 - `comparative_analysis/mond/h2_mond_comparison_summary.csv`
-- `comparative_analysis/referee_resolution/h2_full74_explicit_summary.csv`
+- `comparative_analysis/comparative_validation/h2_full74_explicit_summary.csv`
 
 Note: H2 is plotted using the **30 explicit archived galaxies** only (Tier A+B).
 The 44 Tier C galaxies (no archived log₁₀-dex output) are not plotted.
@@ -141,5 +141,5 @@ Requires `data/sparc/` (SPARC rotation curves, not distributed here; download fr
 - **All troubleshooting:** [USER_GUIDE.md §10](USER_GUIDE.md#10-troubleshooting)
 - **Advanced: generating basis files for new galaxies:** [USER_GUIDE.md §6](USER_GUIDE.md#6-advanced-generating-new-basis-files)
 - **Comparative analysis reports:** `comparative_analysis/nfw/h2_nfw_comparison_report.txt`, `comparative_analysis/mond/h2_mond_comparison_report.txt`
-- **H2 archive tier audit:** `comparative_analysis/referee_resolution/tier_c_audit_report.txt`
+- **H2 archive tier audit:** `comparative_analysis/comparative_validation/tier_c_audit_report.txt`
 
