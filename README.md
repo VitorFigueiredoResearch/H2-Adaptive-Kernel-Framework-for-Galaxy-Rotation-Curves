@@ -299,7 +299,7 @@ Important reproducibility notes:
 * **6 galaxies** are excluded consistently where inner-region coverage is insufficient for stable scatter evaluation
 * metric harmonization and exclusion consistency are documented in the comparison-specific reports
 
-**H2 archive coverage note:** The H2 explicit scatter metric is available for **30 of the 74 comparison galaxies** (Tier A: 9 pilot galaxies; Tier B: 21 expansion galaxies). The remaining 44 galaxies (Tier C) are valid H2 fleet members but have no archived log₁₀-dex phase4 output. Their fleet summaries record Δσ = 0 km/s in velocity units, but this cannot be converted to log₁₀-dex without re-running the H1 basis pipeline. The 44 Tier C galaxies are not treated as near-zero values — they are simply not plotted in H2 scatter comparisons. Full documentation in `comparative_analysis/referee_resolution/tier_c_audit_report.txt`.
+**H2 archive coverage note:** The H2 explicit scatter metric is available for **30 of the 74 comparison galaxies** (Tier A: 9 pilot galaxies; Tier B: 21 expansion galaxies). The remaining 44 galaxies (Tier C) are valid H2 fleet members but have no archived log₁₀-dex phase4 output. Their fleet summaries record Δσ = 0 km/s in velocity units, but this cannot be converted to log₁₀-dex without re-running the H1 basis pipeline. The 44 Tier C galaxies are not treated as near-zero values — they are simply not plotted in H2 scatter comparisons. Full documentation in `comparative_analysis/comparative_validation/tier_c_audit_report.txt`.
 
 ---
 
