@@ -3,7 +3,7 @@
 ## Version 2.0.0 (March 2026)
 
 ### Added
-- `comparative_analysis/referee_resolution/` — H2 tier audit (30 explicit Tier A+B; 44 Tier C no-archive), RAR Spearman correlation result (ρ=+0.049, null), and full 74-galaxy H2 explicit summary CSV
+- `comparative_analysis/comparative_validation/` — H2 tier audit (30 explicit Tier A+B; 44 Tier C no-archive), RAR Spearman correlation result (ρ=+0.049, null), and full 74-galaxy H2 explicit summary CSV
 - `comparative_analysis/final_validation/` — pre-submission go/no-go memo, exclusion consistency check, metric harmonization check, MOND/RAR defensibility audit
 - `comparative_analysis/mond/` and `nfw/` — perturbation summary CSVs (888-row RAR; NFW long-format), diagnostic and narrative reports
 - `comparative_analysis/metric_harmonization/` — harmonized metric CSVs and inspection reports
