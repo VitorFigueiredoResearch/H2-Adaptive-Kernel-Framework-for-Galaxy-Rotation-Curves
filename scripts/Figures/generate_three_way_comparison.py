@@ -91,7 +91,7 @@ H2_EXPLICIT_CSV = os.path.join(
 
 # Default output: paper folder
 PAPER_DIR = os.path.abspath(
-    os.path.join(REPO_ROOT, '..', '..', 'papers', 'H2_MNRAS')
+    os.path.join(REPO_ROOT, '..', '..', 'paper')
 )
 DEFAULT_OUTPUT = os.path.join(PAPER_DIR, 'three_way_comparison.png')
 
