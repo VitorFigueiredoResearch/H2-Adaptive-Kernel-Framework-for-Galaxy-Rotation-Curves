@@ -36,3 +36,9 @@ def main() -> None:
 
 if __name__ == "__main__":
     main()
+
+        print(f"[Galaxy] Rd_star unavailable: {e}")
+
+
+if __name__ == "__main__":
+    main()
