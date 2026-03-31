@@ -12,14 +12,13 @@ Figure design
 Upper panel : Scatter sensitivity (max |Δσ|, dex) as a function of the
               median inner-region baryonic-dominance ratio V_bar/V_NFW,
               for NFW and RAR on the common 74-galaxy set, and for H2 on
-              the 30-galaxy explicit archived subset (Tier A + Tier B).
+              the full reconstructed 74-galaxy set (Tier A + Tier B + Tier C).
               NFW points (circles) show the strong anti-correlation trend.
               RAR points (diamonds) occupy an intermediate, regime-flat level.
-              H2 points (squares) are shown ONLY for the 30 explicit galaxies.
-              The 44 Tier C galaxies (no archived phase4 output) are NOT plotted.
+              H2 points (squares) are shown for ALL 74 galaxies.
 
 Lower panel : Box plots of the max |Δσ| distributions:
-              NFW (N=74), RAR (N=74), H2 (N=30 explicit).
+              NFW (N=74), RAR (N=74), H2 (N=74).
               Sample sizes are labelled on the x-axis.
 
 Data sources
@@ -29,9 +28,11 @@ Data sources
       - Used for 74-galaxy NFW data and for V_bar/V_NFW x-positions
   comparative_analysis/mond/h2_mond_comparison_summary.csv
       - RAR (MOND) mond_max_abs_ds for 74 galaxies
-  comparative_analysis/comparative_validation/h2_full74_explicit_summary.csv
-      - H2 abs_delta_sigma_dex for Tier A+B explicit subset (30 galaxies)
-      - Tier C rows (44 galaxies, no_phase4_file) are excluded from all plots
+  h2_74galaxy_combined_metrics.csv   ← UPDATED SOURCE (was h2_full74_explicit_summary.csv)
+      - H2 abs_delta_sigma for ALL 74 galaxies (Tier A + B + C)
+      - Combined authoritative dataset produced by Phase 4 of the
+        H2 74-galaxy reconstruction feasibility test (2026-03-29)
+      - Method: compute_h2_full74.py V_total_H2 explicit load
 
 The same six galaxies excluded in the paper (F567-2, NGC4389, NGC6789,
 UGC00634, UGC05999, UGC09992) are already absent from these files.
@@ -50,14 +51,18 @@ Output
     three_way_comparison.png  (saved to the paper folder by default, or
                                 to the path given by --output)
 
-Script version: 2.0  (2026-03)
-Change from v1.0:
-  - H2 now uses ONLY the 30 Tier A+B explicit archived galaxies
-  - H2 metric is abs_delta_sigma_dex from h2_full74_explicit_summary.csv
-  - The 44 Tier C (no_archive) galaxies are NOT plotted or filled as zero
-  - RAR Spearman annotation added (ρ = +0.049, null result)
-  - Box plot x-tick labels updated to show N per implementation
-  - matplotlib boxplot tick_labels deprecation fix applied
+Script version: 3.0  (2026-03-29)
+Change from v2.0:
+  - H2 now uses ALL 74 galaxies (Tier A + Tier B + Tier C)
+  - H2 source changed from h2_full74_explicit_summary.csv (Tier A+B only)
+    to h2_74galaxy_combined_metrics.csv (full 74-galaxy authoritative table)
+  - Removed N=30 hard assertion; now asserts N=74
+  - H2 median updated from 0.000860 to 0.000478 dex (combined 74-galaxy result)
+  - All N-labels updated from N=30 to N=74
+  - Figure title updated to reflect N=74 H2 sample
+  - H2 x-positions for scatter panel: merged from NFW CSV (V_bar/V_NFW)
+    for all 74 galaxies; galaxies without NFW x-position are excluded
+    from scatter panel only (reported in load summary)
 """
 
 import os
@@ -84,9 +89,10 @@ MOND_CSV = os.path.join(
     REPO_ROOT,
     'comparative_analysis', 'mond', 'h2_mond_comparison_summary.csv'
 )
-H2_EXPLICIT_CSV = os.path.join(
+# UPDATED: full 74-galaxy combined metrics (replaces h2_full74_explicit_summary.csv)
+H2_COMBINED_CSV = os.path.join(
     REPO_ROOT,
-    'comparative_analysis', 'comparative_validation', 'h2_full74_explicit_summary.csv'
+    'h2_74galaxy_combined_metrics.csv'
 )
 
 # Default output: paper folder
@@ -106,38 +112,41 @@ ALPHA_SCATTER = 0.75
 MARKER_SIZE   = 22      # scatter marker area (s parameter)
 
 
-def load_data(nfw_path, mond_path, h2_explicit_path):
+def load_data(nfw_path, mond_path, h2_combined_path):
     """
     Load and prepare validated CSV outputs.
 
     Returns
     -------
-    nfw_df : DataFrame, 74 rows, NFW data with V_bar/V_NFW x-positions
-    rar_df : DataFrame, 74 rows, RAR data
-    h2_df  : DataFrame, 30 rows, H2 explicit Tier A+B only (no Tier C)
+    nfw_df   : DataFrame, 74 rows, NFW data with V_bar/V_NFW x-positions
+    rar_df   : DataFrame, 74 rows, RAR data
+    h2_df    : DataFrame, up to 74 rows, H2 all tiers merged with NFW x-positions
     merged74 : DataFrame, 74-row merge of NFW+RAR for joint plotting
     """
-    nfw_df = pd.read_csv(nfw_path)
-    mond_df = pd.read_csv(mond_path)
-    h2_raw = pd.read_csv(h2_explicit_path)
+    nfw_df   = pd.read_csv(nfw_path)
+    mond_df  = pd.read_csv(mond_path)
+    h2_raw   = pd.read_csv(h2_combined_path)
 
-    # --- H2: keep ONLY explicit Tier A and Tier B; drop Tier C (no_archive) ---
-    h2_explicit = h2_raw[h2_raw['Tier'].isin(['A', 'B'])].copy()
-    assert len(h2_explicit) == 30, (
-        f"Expected 30 H2 explicit rows (Tier A+B), got {len(h2_explicit)}"
+    # --- H2: all 74 galaxies (Tier A + B + C) ---
+    # h2_74galaxy_combined_metrics.csv has column 'abs_delta_sigma'
+    h2_all = h2_raw.copy()
+    assert len(h2_all) == 74, (
+        f"Expected 74 H2 rows in combined metrics, got {len(h2_all)}"
     )
-    assert h2_explicit['abs_delta_sigma_dex'].isna().sum() == 0, (
-        "Unexpected NaN in abs_delta_sigma_dex for Tier A+B rows"
+    assert h2_all['abs_delta_sigma'].isna().sum() == 0, (
+        "Unexpected NaN in abs_delta_sigma for combined H2 data"
     )
 
-    # --- Merge H2 with NFW to get V_bar/V_NFW x-positions for the 30 galaxies ---
+    # --- Merge H2 with NFW to get V_bar/V_NFW x-positions ---
+    # NFW CSV key column: 'h2_galaxy'; H2 combined key: 'Galaxy'
     h2_with_x = pd.merge(
-        h2_explicit[['Galaxy', 'Regime', 'Tier', 'abs_delta_sigma_dex']],
+        h2_all[['Galaxy', 'Regime', 'Tier', 'abs_delta_sigma']],
         nfw_df[['h2_galaxy', 'V_bar_over_V_NFW_inner_median', 'h2_regime']],
         left_on='Galaxy', right_on='h2_galaxy',
         how='inner'
     )
-    n_h2_merged = len(h2_with_x)
+    n_h2_scatter = len(h2_with_x)
+    n_h2_dropped = len(h2_all) - n_h2_scatter
 
     # --- Merge NFW and RAR for the 74-galaxy joint dataset ---
     merged74 = pd.merge(
@@ -148,26 +157,30 @@ def load_data(nfw_path, mond_path, h2_explicit_path):
         how='inner'
     )
 
-    print(f"[INFO] NFW dataset          : {len(nfw_df)} galaxies")
-    print(f"[INFO] RAR dataset          : {len(mond_df)} galaxies")
-    print(f"[INFO] H2 explicit (Tier A+B): {len(h2_explicit)} galaxies")
-    print(f"[INFO] H2 merged with NFW x : {n_h2_merged} galaxies")
-    print(f"[INFO] 74-galaxy merged set : {len(merged74)} galaxies")
+    print(f"[INFO] NFW dataset           : {len(nfw_df)} galaxies")
+    print(f"[INFO] RAR dataset           : {len(mond_df)} galaxies")
+    print(f"[INFO] H2 combined (all tiers): {len(h2_all)} galaxies")
+    print(f"[INFO] H2 merged with NFW x  : {n_h2_scatter} galaxies (scatter panel)")
+    if n_h2_dropped > 0:
+        print(f"[INFO] H2 dropped (no NFW x) : {n_h2_dropped} (not in scatter panel)")
+    print(f"[INFO] 74-galaxy merged set  : {len(merged74)} galaxies")
     print(f"")
-    print(f"[INFO] NFW  median max|Δσ|  : {merged74['max_abs_delta_sigma'].median():.4f} dex  (N=74)")
-    print(f"[INFO] RAR  median max|Δσ|  : {merged74['mond_max_abs_ds'].median():.4f} dex  (N=74)")
-    print(f"[INFO] H2   median |Δσ|     : {h2_with_x['abs_delta_sigma_dex'].median():.6f} dex  (N=30 explicit)")
+    print(f"[INFO] NFW  median max|Δσ|   : {merged74['max_abs_delta_sigma'].median():.4f} dex  (N=74)")
+    print(f"[INFO] RAR  median max|Δσ|   : {merged74['mond_max_abs_ds'].median():.4f} dex  (N=74)")
+    print(f"[INFO] H2   median |Δσ|      : {h2_all['abs_delta_sigma'].median():.6f} dex  (N=74 all tiers)")
+    print(f"[INFO] H2   median |Δσ|      : {h2_with_x['abs_delta_sigma'].median():.6f} dex  (N={n_h2_scatter} scatter panel)")
 
-    return merged74, h2_with_x
+    return merged74, h2_with_x, h2_all
 
 
-def make_figure(merged74, h2_df, output_path):
+def make_figure(merged74, h2_scatter_df, h2_all_df, output_path):
     """
     Create and save the two-panel comparison figure.
 
     Upper panel : scatter sensitivity vs V_bar/V_NFW.
-                  NFW: 74 galaxies. RAR: 74 galaxies. H2: 30 explicit only.
-    Lower panel : box plots — NFW (N=74), RAR (N=74), H2 (N=30 explicit).
+                  NFW: 74 galaxies. RAR: 74 galaxies. H2: all 74 galaxies
+                  (scatter panel uses galaxies with NFW x-position available).
+    Lower panel : box plots — NFW (N=74), RAR (N=74), H2 (N=74).
     """
     fig, axes = plt.subplots(
         2, 1,
@@ -181,8 +194,9 @@ def make_figure(merged74, h2_df, output_path):
     y_nfw  = merged74['max_abs_delta_sigma'].values
     y_rar  = merged74['mond_max_abs_ds'].values
 
-    x_h2   = h2_df['V_bar_over_V_NFW_inner_median'].values
-    y_h2   = h2_df['abs_delta_sigma_dex'].values
+    x_h2   = h2_scatter_df['V_bar_over_V_NFW_inner_median'].values
+    y_h2_scatter = h2_scatter_df['abs_delta_sigma'].values
+    y_h2_all     = h2_all_df['abs_delta_sigma'].values    # for box plot
 
     # -------------------------------------------------------------------
     # Upper panel: scatter plot
@@ -206,13 +220,13 @@ def make_figure(merged74, h2_df, output_path):
         label='RAR'
     )
 
-    # H2 — 30 explicit galaxies ONLY (squares); Tier C not plotted
+    # H2 — all 74 galaxies (squares); x-position from NFW merge
     ax_scatter.scatter(
-        x_h2, y_h2,
+        x_h2, y_h2_scatter,
         s=MARKER_SIZE * 1.1, marker='s',
         color=COL_H2, alpha=0.90,
         edgecolors='none', zorder=5,
-        label=r'H2 ($N{=}30$ explicit)'
+        label=r'H2 ($N{=}74$)'
     )
 
     # Median reference lines
@@ -223,7 +237,7 @@ def make_figure(merged74, h2_df, output_path):
         np.median(y_rar), color=COL_RAR, lw=1.4, ls='--', alpha=0.80, zorder=2
     )
     ax_scatter.axhline(
-        np.median(y_h2), color=COL_H2, lw=1.2, ls=':', alpha=0.90, zorder=2
+        np.median(y_h2_all), color=COL_H2, lw=1.2, ls=':', alpha=0.90, zorder=2
     )
 
     # Linear trend for NFW (visual guide)
@@ -261,7 +275,7 @@ def make_figure(merged74, h2_df, output_path):
         Line2D([0], [0], marker='D', color='w', markerfacecolor=COL_RAR,
                markersize=5, label='RAR ($N=74$)'),
         Line2D([0], [0], marker='s', color='w', markerfacecolor=COL_H2,
-               markersize=5, label='H2 ($N=30$ explicit)'),
+               markersize=5, label='H2 ($N=74$)'),
         Line2D([0], [0], color='grey', lw=1.2, ls='--', label='median'),
     ]
     ax_scatter.legend(
@@ -277,15 +291,12 @@ def make_figure(merged74, h2_df, output_path):
 
     # -------------------------------------------------------------------
     # Lower panel: box plots
-    # NOTE: H2 box uses 30 explicit values; NFW and RAR use 74 values.
-    #       matplotlib deprecation: use set_xticks/set_xticklabels instead
-    #       of the 'labels' kwarg in boxplot (deprecated in mpl 3.9).
+    # NOTE: All three implementations now use N=74.
     # -------------------------------------------------------------------
-    data_box    = [y_h2, y_rar, y_nfw]
+    data_box    = [y_h2_all, y_rar, y_nfw]
     colours_box = [COL_H2, COL_RAR, COL_NFW]
-    n_counts    = [30, 74, 74]
     tick_lbls   = [
-        f'H2\n($N=30$)',
+        f'H2\n($N=74$)',
         f'RAR\n($N=74$)',
         f'NFW\n($N=74$)',
     ]
@@ -337,7 +348,7 @@ def make_figure(merged74, h2_df, output_path):
     # Figure title and save
     # -------------------------------------------------------------------
     fig.suptitle(
-        'Inner-region scatter sensitivity: NFW/RAR (74), H2 (30 explicit)',
+        'Inner-region scatter sensitivity: NFW/RAR/H2 ($N=74$)',
         fontsize=6.8, y=0.99
     )
 
@@ -350,14 +361,14 @@ def make_figure(merged74, h2_df, output_path):
     print(f"\n[SUMMARY]")
     print(f"  NFW  median max|Δσ| = {np.median(y_nfw):.4f} dex  (N=74)")
     print(f"  RAR  median max|Δσ| = {np.median(y_rar):.4f} dex  (N=74)")
-    print(f"  H2   median |Δσ|    = {np.median(y_h2):.6f} dex  (N=30 explicit)")
-    print(f"  NFW  Spearman ρ = -0.899  (validated)")
-    print(f"  RAR  Spearman ρ = +0.049  (null; validated)")
+    print(f"  H2   median |Δσ|    = {np.median(y_h2_all):.6f} dex  (N=74 all tiers)")
+    print(f"  NFW  Spearman rho = -0.899  (validated)")
+    print(f"  RAR  Spearman rho = +0.049  (null; validated)")
 
 
 def main():
     parser = argparse.ArgumentParser(
-        description='Generate three-way scatter sensitivity comparison figure (v2.0).'
+        description='Generate three-way scatter sensitivity comparison figure (v3.0).'
     )
     parser.add_argument(
         '--output', default=DEFAULT_OUTPUT,
@@ -365,8 +376,8 @@ def main():
     )
     args = parser.parse_args()
 
-    merged74, h2_df = load_data(NFW_CSV, MOND_CSV, H2_EXPLICIT_CSV)
-    make_figure(merged74, h2_df, args.output)
+    merged74, h2_scatter_df, h2_all_df = load_data(NFW_CSV, MOND_CSV, H2_COMBINED_CSV)
+    make_figure(merged74, h2_scatter_df, h2_all_df, args.output)
 
 
 if __name__ == '__main__':
