@@ -116,12 +116,14 @@ def regime_stats(df, col):
 
 
 def make_comparison_figure(merged, fig_dir):
-    """Two-panel comparison figure (scatter + boxplot by regime)."""
+    """Two-panel comparison figure (scatter + histogram)."""
+    H2_MEDIAN_FIXED = 0.000478
+
     fig, axes = plt.subplots(2, 1, figsize=(9, 9))
-    fig.suptitle('H2 vs MOND/RAR Inner-Region Scatter Sensitivity\n'
+    fig.suptitle('Adopted RAR Inner-Region Scatter Sensitivity\n'
                  '(Harmonized metric: log10-RMS [dex])', fontsize=13, y=0.98)
 
-    # ── Top panel: MOND max|Δσ| vs V_bar/V_MOND ratio ─────────────────────────
+    # ── Top panel: RAR max|Δσ| vs V_bar/V_RAR ratio ──────────────────────────
     ax = axes[0]
     for regime, grp in merged.groupby('Regime'):
         c = REGIME_COLORS.get(regime, 'gray')
@@ -131,40 +133,38 @@ def make_comparison_figure(merged, fig_dir):
                    c=c, label=lbl, s=55, alpha=0.75, edgecolors='k', lw=0.4, zorder=3)
 
     ax.axhline(0.01, color='gray', lw=1, ls='--', label='0.01 dex threshold')
-    ax.set_xlabel('Median($V_{bar}$ / $V_{MOND}$) in inner region', fontsize=11)
-    ax.set_ylabel('MOND max|$\Delta\sigma$| [dex]', fontsize=11)
-    ax.set_title(f'MOND scatter sensitivity vs baryonic dominance ratio  '
+    ax.set_xlabel('Median($V_{bar}$ / $V_{RAR}$) in inner region', fontsize=11)
+    ax.set_ylabel('RAR max|$\Delta\sigma$| [dex]', fontsize=11)
+    ax.set_title(f'RAR scatter sensitivity vs baryonic dominance ratio  '
                  f'(N={len(merged)})', fontsize=11)
     ax.legend(fontsize=9, loc='upper right')
     ax.set_ylim(bottom=0)
 
-    # ── Bottom panel: histogram of max|Δσ| — MOND vs NFW ──────────────────────
+    # ── Bottom panel: histogram of max|Δσ| — RAR vs NFW with H2 reference ───
     ax2 = axes[1]
     bins = np.linspace(0, max(merged['mond_max_abs_ds'].max(),
                                merged.get('nfw_max_abs_ds', pd.Series([0.1])).max(),
                                0.12), 25)
 
     ax2.hist(merged['mond_max_abs_ds'].dropna(), bins=bins,
-             color='steelblue', alpha=0.65, label='MOND/RAR max|Δσ|', edgecolor='k', lw=0.4)
+             color='steelblue', alpha=0.65, label='RAR (adopted) max|Δσ|', edgecolor='k', lw=0.4)
 
     if 'nfw_max_abs_ds' in merged.columns:
         ax2.hist(merged['nfw_max_abs_ds'].dropna(), bins=bins,
                  color='tomato', alpha=0.55, label='NFW max|Δσ|', edgecolor='k', lw=0.4)
 
-    if 'h2_abs_delta_sigma' in merged.columns:
-        valid_h2 = merged['h2_abs_delta_sigma'].dropna()
-        if len(valid_h2) > 0:
-            ax2.axvline(valid_h2.median(), color='purple', lw=2, ls='--',
-                        label=f'H2 median|Δσ|={valid_h2.median():.4f}')
+    ax2.axvline(H2_MEDIAN_FIXED, color='purple', lw=2, ls='--',
+                label='H2 median|Δσ| = 0.000478 dex')
 
     ax2.axvline(0.01, color='gray', lw=1, ls=':', label='0.01 dex')
     ax2.set_xlabel('max|$\Delta\sigma$| [dex, log10-RMS]', fontsize=11)
     ax2.set_ylabel('Galaxy count', fontsize=11)
-    ax2.set_title('Distribution of scatter sensitivity: MOND vs NFW', fontsize=11)
+    ax2.set_title('Distribution of adopted RAR scatter sensitivity with NFW and H2 reference levels',
+                  fontsize=11)
     ax2.legend(fontsize=9)
 
     plt.tight_layout(rect=[0, 0, 1, 0.97])
-    out = os.path.join(fig_dir, 'mond_scatter_sensitivity.png')
+    out = os.path.join(fig_dir, 'rar_scatter_sensitivity.png')
     plt.savefig(out, dpi=150)
     plt.close()
     print(f"  Figure saved: {out}")
@@ -199,7 +199,6 @@ def write_report(merged, mond_stats, nfw_stats, h2_stats, out_path, n_mond, n_nf
 
     report = f"""H2 – MOND/RAR Comparative Scatter Analysis — Plain-Language Report
 ====================================================================
-Generated: 2026-03-24
 
 1. METRIC COMPARABILITY
 ------------------------
