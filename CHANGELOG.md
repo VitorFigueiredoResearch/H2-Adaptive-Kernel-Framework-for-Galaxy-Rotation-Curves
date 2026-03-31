@@ -1,19 +1,40 @@
 # Changelog
 
-## Version 2.0.0 (March 2026)
+## Version 2.2.2 (March 2026)
 
 ### Added
-- `comparative_analysis/comparative_validation/` — H2 tier audit (30 explicit Tier A+B; 44 Tier C no-archive), RAR Spearman correlation result (ρ=+0.049, null), and full 74-galaxy H2 explicit summary CSV
-- `comparative_analysis/final_validation/` — pre-submission go/no-go memo, exclusion consistency check, metric harmonization check, MOND/RAR defensibility audit
-- `comparative_analysis/mond/` and `nfw/` — perturbation summary CSVs (888-row RAR; NFW long-format), diagnostic and narrative reports
-- `comparative_analysis/metric_harmonization/` — harmonized metric CSVs and inspection reports
-- `scripts/Figures/generate_three_way_comparison.py` v2.0 — three-way comparison figure (NFW/RAR/H2); H2 uses 30 explicit archived galaxies only; 44 Tier C not plotted; both Spearman results annotated
+- `tools/` — reproducibility utilities and documentation for bounded workflow verification
+- `tools/h2_diagnostic_tool.py` — standalone inner-region scatter metric verification utility for compatible model/data inputs
+- `tools/TOOL_FEASIBILITY_REPORT.md` — feasibility audit defining the bounded scope of the public diagnostic utility
+- `tools/TOOL_INTEGRATION_REPORT.md` — tooling architecture report documenting the layered reproducibility structure
+- `tools/TOOL_SAFETY_HARDENING_REPORT.md` — release-safety audit, README hardening, and legacy-script warning status
+- `tools/sparc_extractor/` — SPARC/H1 input reconstruction utility with validator and documentation for upstream reproducibility
+- updated `comparative_analysis/mond/figures/rar_scatter_sensitivity.png` with manuscript-synchronised RAR-facing labels and fixed H2 reference level
+- updated three-way comparison assets reflecting full-sample H2 coverage on the common 74-galaxy basis
 
 ### Changed
-- Manuscript target: resubmitted to Monthly Notices of the Royal Astronomical Society (MNRAS) as comparative paper
-- Paper title: *"Inner-Region Scatter Response to Bounded Perturbations: A Comparative Analysis of 74 SPARC Galaxies"*
-- H2 median |Δσ| updated to 0.000860 dex based on 30 explicit Tier A+B archived galaxies (was 0.0005 dex from earlier 9-galaxy estimate)
-- README updated to reflect comparative-paper state and correct H2 archive coverage
+- manuscript synchronized to the final comparative MNRAS framing:
+  *Inner-Region Scatter Response to Bounded Perturbations: A Comparative Analysis of 74 SPARC Galaxies*
+- H2 full-sample median inner-region response updated to  
+  `|Δσ|_H2 = 0.000478 dex` on the common 74-galaxy comparison sample
+- comparative text, captions, tables, and figures updated to remove legacy 30-galaxy subset wording
+- Figure 3 updated to show NFW, adopted RAR, and H2 on a symmetric `N = 74` footing
+- repository documentation revised to distinguish:
+  - upstream SPARC/H1 input reconstruction
+  - downstream H2 metric verification
+  - the non-portable internal H1+H2 middle pipeline
+
+### Fixed
+- removed stale figure annotations and manuscript references tied to the earlier 30-galaxy archived H2 subset
+- corrected RAR figure wording to use adopted RAR language instead of legacy MOND-facing labels
+- added warning shielding for legacy `test3_inner_scatter.py` so it is not mistaken for the authoritative manuscript path
+- hardened public-facing tool documentation to clarify assumptions, limitations, and release-safe usage boundaries
+
+### Notes
+- The public tools are provided as reproducibility and diagnostic utilities only. They do not constitute a general external-data implementation of the full H1+H2 pipeline.
+- Release of bundled SPARC/CDS source tables remains subject to verification of upstream data-usage and redistribution terms.
+
+---
 
 ### Note on v1.1.3
 The ApJ submission phase (Manuscript #AAS74932) preceded the current comparative reframing. The earlier H2_ApJ_SUBMISSION_FINAL.tex manuscript is preserved in `paper/` for archival reference.
